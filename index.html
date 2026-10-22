@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noimageindex">
+<meta name="color-scheme" content="light dark">
+<title>Cancel OS Design Review</title>
+<style>
+/* One reading column. Each asset is a figure with its revision, what it shows, and two links. */
+:root {
+  --canvas: #f3f0e9; --surface: #faf7f1; --hairline: #ddd7cc; --ink: #27241f; --muted: #5e574d;
+  --accent: #ff6b35; --accent-text: #a8340b; --caution: #ffe6d9; --focus: #3d6bff;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Consolas, "Roboto Mono", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --canvas: #15120f; --surface: #1f1b17; --hairline: #38322b; --ink: #efe9e0; --muted: #b0a79b;
+    --accent-text: #ff9668; --caution: #3a2418; --focus: #8aa6ff;
+  }
+}
+* { box-sizing: border-box; }
+html { background: var(--canvas); }
+body {
+  margin: 0; background: var(--canvas); color: var(--ink); font-family: var(--font);
+  font-size: 15px; line-height: 1.55;
+}
+.wrap {
+  max-width: 1080px; margin: 0 auto; padding: 40px max(16px, env(safe-area-inset-right, 0px)) 64px
+  max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: 44px;
+}
+header { display: grid; gap: 12px; max-width: 70ch; }
+h1 { font-size: clamp(26px, 4vw, 34px); line-height: 1.15; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
+h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0; font-weight: 600; }
+h3 { font-size: 15px; margin: 0; }
+p, ul { margin: 0; }
+code { font-family: var(--mono); font-size: 0.88em; }
+a { color: var(--accent-text); }
+a:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+.public {
+  background: var(--caution); border-radius: 10px; padding: 12px 14px; display: grid; gap: 4px; max-width: 70ch;
+}
+section { display: grid; gap: 16px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
+.phones { display: grid; grid-template-columns: repeat(2, minmax(0, 320px)); gap: 28px; justify-content: start; }
+figure { margin: 0; display: grid; gap: 10px; min-width: 0; align-content: start; }
+.frame {
+  display: block; background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px;
+  overflow: hidden; line-height: 0;
+}
+.frame img { width: 100%; height: auto; display: block; }
+figcaption { display: grid; gap: 6px; font-size: 14px; color: var(--muted); }
+figcaption p { max-width: 70ch; }
+.meta { font-size: 13px; }
+.links { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 14px; }
+.label {
+  display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 999px;
+  border: 1px solid var(--hairline); background: var(--surface); color: var(--accent-text); margin-right: 6px;
+}
+.note {
+  display: grid; grid-template-columns: minmax(0, 240px) minmax(0, 1fr); gap: 14px; align-items: start;
+  background: var(--caution); border-radius: 10px; padding: 12px;
+}
+.status { display: grid; gap: 10px; padding: 0; list-style: none; max-width: 80ch; }
+footer { font-size: 13px; color: var(--muted); max-width: 80ch; display: grid; gap: 6px; }
+@media (max-width: 760px) {
+  .grid2, .note { grid-template-columns: minmax(0, 1fr); }
+  .phones { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p><strong>Cancel OS</strong></p>
+    <h1>Design review: premium identity, first slice</h1>
+    <p>The oat and ivory palette, the cut-tile logo, the brand loader and calmer motion. Every screen uses synthetic
+      test data (account <code>wizard@example.test</code>, services named "Synthetic …") on a local stand-in server, in
+      headless Chrome or the Android emulator. No real person's data appears.</p>
+    <div class="public">
+      <p><strong>This is a public preview.</strong> Anyone with the link can open it. It asks search engines not to
+        index it, but that is a request, not access control.</p>
+    </div>
+    <p class="meta">Revisions are commits in the private Cancel OS repository. Design checkpoint: <code>936a9fe</code>
+      (code) and <code>75668e9</code> (its evidence). The "Most popular" badge was removed in <code>eefb0e8</code>,
+      with evidence in <code>cb709fc</code>.</p>
+  </header>
+
+  <section aria-labelledby="h-palette">
+    <h2 id="h-palette">Palette and logo</h2>
+    <figure>
+      <a class="frame" href="assets/palette-and-logo.png"><img src="assets/palette-and-logo.png" alt="Light palette before and after with contrast ratios, the same card before and after, and three logo concepts, with the cut tile chosen" width="1400" height="1200"></a>
+      <figcaption>
+        <p>The light theme drops pure white: an oat page, ivory surfaces, a hairline edge and warm charcoal text
+          (13.6:1). Orange stays the brand and the main action. Of three logo concepts, the cut tile was chosen. The
+          before-and-after card on this sheet is an illustration with example data, not a capture.</p>
+        <p class="meta">Revision: design for <code>936a9fe</code>, sheet committed in <code>75668e9</code>. PNG, 1400 × 1200, 112 KB.</p>
+        <p class="links"><a href="assets/palette-and-logo.png">Open full size</a><a href="assets/palette-and-logo.png" download>Download PNG</a></p>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section aria-labelledby="h-web">
+    <h2 id="h-web">Website, light mode, 1280 px wide</h2>
+    <div class="grid2">
+      <figure>
+        <a class="frame" href="assets/web-landing-1280-light.png"><img src="assets/web-landing-1280-light.png" alt="Landing page first view: the logo in the header, the headline, the orange Import a statement button, and example cards" width="1280" height="900"></a>
+        <figcaption>
+          <h3>Landing page</h3>
+          <p>The first view, with no entrance animation. The cards show the page's built-in example figures
+            (Streamline+, Helio Music), not account data.</p>
+          <p class="meta">Revision: app code identical to <code>936a9fe</code>, captured for <code>75668e9</code>. PNG, 1280 × 900, 242 KB.</p>
+          <p class="links"><a href="assets/web-landing-1280-light.png">Open full size</a><a href="assets/web-landing-1280-light.png" download>Download PNG</a></p>
+        </figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/web-overview-1280-light.png"><img src="assets/web-overview-1280-light.png" alt="Subscriptions overview: sidebar with the logo, a totals band, and three synthetic subscriptions with their amounts on the right" width="1280" height="900"></a>
+        <figcaption>
+          <h3>Subscriptions overview</h3>
+          <p>Each row's figure is the stored amount. Where it came from, its category and merchant are one quiet line.</p>
+          <p class="meta">Revision: app code identical to <code>936a9fe</code>, captured for <code>75668e9</code>. PNG, 1280 × 900, 115 KB.</p>
+          <p class="links"><a href="assets/web-overview-1280-light.png">Open full size</a><a href="assets/web-overview-1280-light.png" download>Download PNG</a></p>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-android">
+    <h2 id="h-android">Android emulator, 100% text size</h2>
+    <div class="phones">
+      <figure>
+        <a class="frame" href="assets/android-light-100-01-list.png"><img src="assets/android-light-100-01-list.png" alt="Android list in light mode: the logo beside Signed in as, 3 active, the Import a statement button, and three synthetic subscriptions" width="1280" height="2856"></a>
+        <figcaption>
+          <h3>List, light mode</h3>
+          <p>A count, never a money total. One primary action.</p>
+          <p class="meta">PNG, 1280 × 2856, 263 KB.</p>
+          <p class="links"><a href="assets/android-light-100-01-list.png">Open full size</a><a href="assets/android-light-100-01-list.png" download>Download PNG</a></p>
+        </figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/android-dark-100-02-detail.png"><img src="assets/android-dark-100-02-detail.png" alt="Android subscription detail in dark mode: Synthetic Cloud A, 2.50 EUR monthly, next renewal around 3 Nov 2026, marked as an estimate" width="1280" height="2856"></a>
+        <figcaption>
+          <h3>Detail, dark mode</h3>
+          <p>The renewal is worded as an estimate.</p>
+          <p class="meta">PNG, 1280 × 2856, 201 KB.</p>
+          <p class="links"><a href="assets/android-dark-100-02-detail.png">Open full size</a><a href="assets/android-dark-100-02-detail.png" download>Download PNG</a></p>
+        </figcaption>
+      </figure>
+    </div>
+    <p class="meta">Revision for both: app code identical to <code>936a9fe</code> (debug build, JavaScript from the
+      development server), captured for <code>75668e9</code>. The notification icons in the status bar were already
+      on this virtual device; no other app was opened.</p>
+    <p><span class="label">Different data</span>"Renews around 3 Nov 2026" on Synthetic Cloud A comes from an earlier
+      test save on the synthetic account. Captures of the previous design show no renewal date for it, so any
+      before-and-after comparison of these two screens compares different data as well as a different design.</p>
+  </section>
+
+  <section aria-labelledby="h-motion">
+    <h2 id="h-motion">Motion previews (animated WebP)</h2>
+    <div class="grid2">
+      <figure>
+        <a class="frame" href="assets/web-motion.webp"><img src="assets/web-motion.webp" alt="Website recording: the brand loader during a held read, a FAQ panel growing open, and the row editor's reveal" width="960" height="705"></a>
+        <figcaption>
+          <h3>Website, about 6 s, looping</h3>
+          <p>The loader while the stand-in holds the list read for 3.5 s: hidden for 400 ms, then the logo's cut corner
+            lifts and settles. Then a FAQ panel growing open, and the row editor's reveal.</p>
+          <p class="meta">Revision: app code identical to <code>936a9fe</code>, recorded for <code>75668e9</code>. WebP, 960 × 705, 133 frames, 568 KB.</p>
+          <p class="links"><a href="assets/web-motion.webp">Open full size</a><a href="assets/web-motion.webp" download>Download WebP</a></p>
+        </figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/android-motion-short.webp" style="max-width: 360px"><img src="assets/android-motion-short.webp" alt="Android recording: sign in, the brand loader during a held read, the list, opening a subscription, and saving a change" width="360" height="686"></a>
+        <figcaption>
+          <h3>Android, about 14 s, looping</h3>
+          <p>Sign in, the loader while the list read is held 3 s, the list, a row's pressed ground, the subscription
+            sliding in, and a save with "Saved to your account".</p>
+          <p class="meta">Revision: app code identical to <code>936a9fe</code>, recorded for <code>75668e9</code>. WebP, 360 × 686, 73 frames at 10 fps, 258 KB.</p>
+          <p class="links"><a href="assets/android-motion-short.webp">Open full size</a><a href="assets/android-motion-short.webp" download>Download WebP</a></p>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="note">
+      <a class="frame" href="assets/web-pricing-1280-light.png"><img src="assets/web-pricing-1280-light.png" alt="Current pricing section: Free, Pro and Founding tiers with no badge" width="1280" height="900"></a>
+      <div style="display: grid; gap: 8px">
+        <p><span class="label">Outdated in the recording</span>The website recording was made at <code>936a9fe</code>,
+          so its FAQ segment still shows a "Most popular" badge on the Pro tier. There was no evidence for that claim,
+          so the badge was removed in <code>eefb0e8</code>, and nothing replaced it.</p>
+        <p>This screenshot is the pricing section without it. Prices, features and buttons are unchanged.</p>
+        <p class="meta">Revision: <code>75668e9</code> plus the change later committed as <code>eefb0e8</code>,
+          captured for <code>cb709fc</code>. PNG, 1280 × 900, 113 KB.</p>
+        <p class="links"><a href="assets/web-pricing-1280-light.png">Open full size</a><a href="assets/web-pricing-1280-light.png" download>Download PNG</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-status">
+    <h2 id="h-status">Not verified</h2>
+    <ul class="status">
+      <li><span class="label">Pending</span><strong>TalkBack, used by a person.</strong> In code, the loader's moving
+        logo is hidden from accessibility services. It has one stable label, "Loading your subscriptions…", and makes
+        no announce or focus calls. Observed with Android's event tool: while it animates, it sends about 7
+        "content changed" events a second, with the same label and no announcement or focus events. What TalkBack
+        says in response has not been observed. The inspection tool never going idle during the animation is a fact
+        about that tool, not about TalkBack.</li>
+      <li><span class="label">Not run</span><strong>A screen reader on the website.</strong> Chrome's accessibility
+        tree was inspected: one polite status with only the loading words, no changes during the animation, and focus
+        never moved into it. No screen reader was run.</li>
+      <li><span class="label">Not visually verified</span><strong>The save check mark's settle.</strong> It plays while
+        the screen scrolls the success banner into view. No capture shows the settle itself.</li>
+      <li><span class="label">Not run</span>A physical phone, the release build, and browsers other than Chrome.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>A static page: plain HTML and image files, with no script, no tracking and no login.</p>
+  </footer>
+</div>
+</body>
+</html>
