@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noimageindex">
+<meta name="color-scheme" content="light dark">
+<title>Glass and Depth Review</title>
+<style>
+/* The previous review's page, one reading column; videos get native controls. */
+:root {
+  --canvas: #f3f0e9; --surface: #faf7f1; --hairline: #ddd7cc; --ink: #27241f; --muted: #5e574d;
+  --accent-text: #a8340b; --caution: #ffe6d9; --focus: #3d6bff;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Consolas, "Roboto Mono", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --canvas: #15120f; --surface: #1f1b17; --hairline: #38322b; --ink: #efe9e0; --muted: #b0a79b;
+    --accent-text: #ff9668; --caution: #3a2418; --focus: #8aa6ff;
+  }
+}
+* { box-sizing: border-box; }
+html { background: var(--canvas); }
+body { margin: 0; background: var(--canvas); color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.55; }
+.wrap {
+  max-width: 1080px; margin: 0 auto; padding: 40px max(16px, env(safe-area-inset-right, 0px)) 64px
+  max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: 44px;
+}
+header { display: grid; gap: 12px; max-width: 72ch; }
+h1 { font-size: clamp(26px, 4vw, 34px); line-height: 1.15; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
+h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0; font-weight: 600; }
+h3 { font-size: 15px; margin: 0; }
+p, ul, ol { margin: 0; }
+ul, ol { padding-left: 20px; }
+code { font-family: var(--mono); font-size: 0.88em; overflow-wrap: anywhere; }
+a { color: var(--accent-text); }
+a:focus-visible, video:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+.box { background: var(--caution); border-radius: 10px; padding: 12px 14px; display: grid; gap: 6px; max-width: 72ch; }
+section { display: grid; gap: 16px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
+.phones { display: grid; grid-template-columns: repeat(2, minmax(0, 300px)); gap: 28px; justify-content: start; }
+figure { margin: 0; display: grid; gap: 10px; min-width: 0; align-content: start; }
+.frame { display: block; background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px; overflow: hidden; line-height: 0; }
+.frame img, .frame video { width: 100%; height: auto; display: block; }
+.narrow { max-width: 360px; }
+figcaption { display: grid; gap: 6px; font-size: 14px; color: var(--muted); }
+figcaption p { max-width: 72ch; }
+figcaption ol { display: grid; gap: 2px; }
+.meta { font-size: 13px; }
+.links { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 14px; }
+.label {
+  display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 999px;
+  border: 1px solid var(--hairline); background: var(--surface); color: var(--accent-text); margin-right: 6px;
+}
+.status { display: grid; gap: 10px; padding: 0; list-style: none; max-width: 80ch; }
+.urls { display: grid; gap: 4px; padding: 0; list-style: none; font-size: 13px; }
+footer { font-size: 13px; color: var(--muted); max-width: 80ch; display: grid; gap: 6px; }
+@media (max-width: 760px) {
+  .grid2 { grid-template-columns: minmax(0, 1fr); }
+  .phones { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p><strong>Cancel OS</strong> · <a href="../">Previous review: premium identity</a></p>
+    <h1>Design review: glass and depth, first slice</h1>
+    <p>Selective glass on navigation, menus and overlays over a warm ambient ground; one family of rounded shapes;
+      restrained spring motion; the cut-tile logo's corner gesture while real work is pending. The slice covers the
+      website's subscription overview with its navigation and one menu, the Android subscription list and a
+      subscription with the transition between them, and the loader on both. Every screen uses synthetic test data
+      (account <code>wizard@example.test</code>, services named "Synthetic …") on a local stand-in server, in headless
+      Chrome or the Android emulator. No real person's data appears.</p>
+    <div class="box">
+      <p><strong>This is a public preview.</strong> Anyone with the link can open it. It asks search engines not to
+        index it, but that is a request, not access control.</p>
+    </div>
+    <p class="meta">Revisions are commits in the private Cancel OS repository. App code: <code>2f99d95</code> (checkpoint
+      before it: <code>2629ec1</code>). Screenshots and the Android recording: evidence commit <code>34e7594</code>. The
+      website recording's MP4 and its corrected WebP: <code>aa20820</code>, made from the same frames as the
+      first one. The app code has not changed since <code>2f99d95</code>.</p>
+  </header>
+
+  <section aria-labelledby="h-android-glass">
+    <h2 id="h-android-glass">Android: a tint, not a blur</h2>
+    <div class="box">
+      <p><strong>On Android the "glass" header is a translucent tint, not backdrop blur.</strong> React Native has no
+        backdrop blur, and no package was added for it.</p>
+      <p>At rest the native header is transparent, tinted with the glass colour, over the screen's warm ground. When
+        content scrolls under it, a solid sheet of paper fades in behind it over the first 12 dp of scroll, as
+        Android's own top app bars do. A tint alone let the words underneath read through behind the title.</p>
+      <p>The menu is near-opaque (94%) for the same reason. Real blur would need a new native package
+        (<code>expo-blur</code> 57.0.3 using <code>com.github.Dimezis:BlurView:version-3.1.0</code>) and new builds. That
+        has not been approved or added. The website's glass is real CSS <code>backdrop-filter</code> blur in Chrome, and
+        becomes opaque where blur is unsupported or reduced transparency is set.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-motion">
+    <h2 id="h-motion">Recordings, real speed, with playback controls</h2>
+    <div class="grid2">
+      <figure>
+        <video class="frame" controls preload="metadata" playsinline width="960" height="664" src="assets/web-glass-recording.mp4">
+          <a href="assets/web-glass-recording.mp4">Website recording (MP4)</a>
+        </video>
+        <figcaption>
+          <h3>Website, 13.6 s</h3>
+          <p>Captions are drawn into the top of each frame, with the time since the start:</p>
+          <ol>
+            <li>0.0 s: the dashboard. The subscriptions read is held 3 s at the local stand-in.</li>
+            <li>0.7 s: Subscriptions is clicked. The brand loader appears (hidden for its first 400 ms), then the list
+              replaces it, and the current-page capsule glides.</li>
+            <li>5.0 s: Edit is pressed. The button settles on the spring and the editor opens in place.</li>
+            <li>6.9 s: the Appearance menu grows from its button, and the highlight follows the pointer.</li>
+            <li>8.3 s: Dark is chosen: smoked glass over the ember ground.</li>
+            <li>9.7 s: the capsule glides to Upcoming and back.</li>
+            <li>12.3 s: back to Match system (light here).</li>
+          </ol>
+          <p class="meta">Headless Chrome 155 at 1280 × 900, CDP screencast frames. The MP4 draws each frame at its own
+            timestamp, so it plays the 13.45 s take in 13.6 s. H.264, 960 × 664, 2.6 MB.</p>
+          <p class="meta"><span class="label">Corrected</span>The first copy of the animated WebP played for 19.2 s, about
+            70% of real speed. It held every frame for at least 16 ms, while Chrome sent frames 6–10 ms apart. The WebP
+            here drops those frames instead, and plays 14.7 s: the take plus the last frame held for 1.2 s.</p>
+          <p class="links"><a href="assets/web-glass-recording.mp4">Open MP4</a><a href="assets/web-glass-recording.mp4" download>Download MP4</a><a href="assets/web-glass-recording.webp">Animated WebP (1.5 MB)</a></p>
+        </figcaption>
+      </figure>
+      <figure>
+        <video class="frame narrow" controls preload="metadata" playsinline width="720" height="1280" src="assets/android-glass-recording.mp4">
+          <track kind="captions" src="assets/android-glass-recording.vtt" srclang="en" label="English" default>
+          <a href="assets/android-glass-recording.mp4">Android recording (MP4)</a>
+        </video>
+        <figcaption>
+          <h3>Android emulator, 30.8 s</h3>
+          <p>The emulator's own screen recording, unedited. Captions are a separate track
+            (<a href="assets/android-glass-recording.vtt">WebVTT</a>):</p>
+          <ol>
+            <li>1.5 s: sign in, with the list read held 3 s at the local stand-in: the brand loader, then the list.</li>
+            <li>11.3 s: the list on its warm ground, under the header's glass tint (a tint, not a blur).</li>
+            <li>17.7 s: More options: the menu grows from its button; Back closes it.</li>
+            <li>22.8 s: a row is pressed (ripple and pressed ground), and the subscription slides in.</li>
+            <li>27.2 s: Edit details (a press on the spring) scrolls to the editor. With content under it, the header
+              turns solid.</li>
+            <li>29.5 s: Back: the subscription slides away.</li>
+          </ol>
+          <p class="meta">Pixel 10 Pro emulator, Android 16, debug build with JavaScript from the development server.
+            Caption times come from the harness's clock, within a few hundred milliseconds of the picture. The status
+            bar's notification icons were already on this virtual device. H.264, 720 × 1280 (the 1280 × 2856 screen,
+            letterboxed), 2.4 MB.</p>
+          <p class="links"><a href="assets/android-glass-recording.mp4">Open MP4</a><a href="assets/android-glass-recording.mp4" download>Download MP4</a><a href="assets/android-glass-recording.webp">Captioned WebP, 32 s (1.0 MB)</a></p>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-web">
+    <h2 id="h-web">Website, headless Chrome</h2>
+    <div class="grid2">
+      <figure>
+        <a class="frame" href="assets/web-overview-1280-light.png"><img src="assets/web-overview-1280-light.png" alt="Subscriptions overview in light mode: a floating frosted-glass sidebar over a warm ground, the totals band, and three synthetic subscriptions on opaque cards" width="1280" height="900"></a>
+        <figcaption>
+          <h3>Overview, light, 1280 px</h3>
+          <p>The sidebar is frosted glass: ivory at 70%, 22 px blur. Cards, amounts and forms stay on opaque paper.</p>
+          <p class="meta">PNG, 1280 × 900, 273 KB.</p>
+          <p class="links"><a href="assets/web-overview-1280-light.png">Open full size</a><a href="assets/web-overview-1280-light.png" download>Download PNG</a></p>
+        </figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/web-overview-1280-dark.png"><img src="assets/web-overview-1280-dark.png" alt="The same overview in dark mode: a smoked-glass sidebar over a dark ember ground, dark opaque cards" width="1280" height="900"></a>
+        <figcaption>
+          <h3>Overview, dark, 1280 px</h3>
+          <p>Smoked glass: charcoal at 62%, a fainter edge, designed separately rather than inverted.</p>
+          <p class="meta">PNG, 1280 × 900, 230 KB.</p>
+          <p class="links"><a href="assets/web-overview-1280-dark.png">Open full size</a><a href="assets/web-overview-1280-dark.png" download>Download PNG</a></p>
+        </figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/web-menu-1280-light.png"><img src="assets/web-menu-1280-light.png" alt="The Appearance menu open in light mode under its button at the top of the sidebar: Match system, checked, Follows your device; Light, highlighted under the pointer; Dark" width="1280" height="900"></a>
+        <figcaption>
+          <h3>Appearance menu open, light</h3>
+          <p>A new menu: Match system, Light and Dark. The old sun-and-moon button had no way back to following the
+            device. It is the densest glass (90%, 34 px blur), and is drawn at the page level so its blur covers what
+            is behind it.</p>
+          <p class="meta">PNG, 1280 × 900, 277 KB.</p>
+          <p class="links"><a href="assets/web-menu-1280-light.png">Open full size</a><a href="assets/web-menu-1280-light.png" download>Download PNG</a></p>
+        </figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/web-menu-1280-dark.png"><img src="assets/web-menu-1280-dark.png" alt="The Appearance menu open in dark mode, smoked glass over the sidebar" width="1280" height="900"></a>
+        <figcaption>
+          <h3>Appearance menu open, dark</h3>
+          <p class="meta">PNG, 1280 × 900, 238 KB.</p>
+          <p class="links"><a href="assets/web-menu-1280-dark.png">Open full size</a><a href="assets/web-menu-1280-dark.png" download>Download PNG</a></p>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="phones">
+      <figure>
+        <a class="frame" href="assets/web-390-scrolled-light.png"><img src="assets/web-390-scrolled-light.png" alt="The overview at phone width in light mode, scrolled: the totals card passes under the glass top bar, and the Renewal calendar heading passes under the glass tab bar at the bottom" width="780" height="1688"></a>
+        <figcaption>
+          <h3>Phone width, scrolled, light</h3>
+          <p>Content passes under the glass top bar and tab bar, softened by the blur. Before this slice, the top bar
+            had no ground at all, and scrolled text showed through the logo and buttons.</p>
+          <p class="meta">390 px wide at 2× (PNG 780 × 1688), 271 KB.</p>
+          <p class="links"><a href="assets/web-390-scrolled-light.png">Open full size</a><a href="assets/web-390-scrolled-light.png" download>Download PNG</a></p>
+        </figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/web-390-scrolled-dark.png"><img src="assets/web-390-scrolled-dark.png" alt="The same scrolled phone-width view in dark mode" width="780" height="1688"></a>
+        <figcaption>
+          <h3>Phone width, scrolled, dark</h3>
+          <p class="meta">PNG 780 × 1688, 236 KB.</p>
+          <p class="links"><a href="assets/web-390-scrolled-dark.png">Open full size</a><a href="assets/web-390-scrolled-dark.png" download>Download PNG</a></p>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-android">
+    <h2 id="h-android">Android emulator, 100% text size unless stated</h2>
+    <div class="phones">
+      <figure>
+        <a class="frame" href="assets/android-list-light.png"><img src="assets/android-list-light.png" alt="Android list in light mode: the native header with Subscriptions and a three-dot More options button, tinted over the warm ground; 3 active; Import a statement; three synthetic subscriptions" width="1280" height="2856"></a>
+        <figcaption><h3>List, light</h3><p>The header at rest: the glass tint over the warm ground. A count, never a money total.</p><p class="meta">PNG, 1280 × 2856, 572 KB.</p>
+          <p class="links"><a href="assets/android-list-light.png">Open full size</a><a href="assets/android-list-light.png" download>Download PNG</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/android-list-dark.png"><img src="assets/android-list-dark.png" alt="Android list in dark mode" width="1280" height="2856"></a>
+        <figcaption><h3>List, dark</h3><p class="meta">PNG, 1280 × 2856, 309 KB.</p>
+          <p class="links"><a href="assets/android-list-dark.png">Open full size</a><a href="assets/android-list-dark.png" download>Download PNG</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/android-menu-light.png"><img src="assets/android-menu-light.png" alt="Android list with the More options menu open in light mode under its button: Explore services, Reminder settings, Settings" width="1280" height="2856"></a>
+        <figcaption><h3>More options menu open, light</h3><p>A new route to Explore services, Reminder settings and Settings. The
+          list's "More" section is unchanged.</p><p class="meta">PNG, 1280 × 2856, 516 KB.</p>
+          <p class="links"><a href="assets/android-menu-light.png">Open full size</a><a href="assets/android-menu-light.png" download>Download PNG</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/android-menu-dark.png"><img src="assets/android-menu-dark.png" alt="The More options menu open in dark mode" width="1280" height="2856"></a>
+        <figcaption><h3>More options menu open, dark</h3><p class="meta">PNG, 1280 × 2856, 317 KB.</p>
+          <p class="links"><a href="assets/android-menu-dark.png">Open full size</a><a href="assets/android-menu-dark.png" download>Download PNG</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/android-detail-light.png"><img src="assets/android-detail-light.png" alt="A subscription in light mode: Synthetic Cloud A, 2.50 EUR, Monthly, Active and Cloud tags, Edit details, then details including Next renewal: No renewal date estimated" width="1280" height="2856"></a>
+        <figcaption><h3>Subscription, light</h3><p>The summary card has a layered shadow; the header shows Navigate up.</p><p class="meta">PNG, 1280 × 2856, 401 KB.</p>
+          <p class="links"><a href="assets/android-detail-light.png">Open full size</a><a href="assets/android-detail-light.png" download>Download PNG</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/android-detail-dark.png"><img src="assets/android-detail-dark.png" alt="The same subscription in dark mode" width="1280" height="2856"></a>
+        <figcaption><h3>Subscription, dark</h3><p class="meta">PNG, 1280 × 2856, 241 KB.</p>
+          <p class="links"><a href="assets/android-detail-dark.png">Open full size</a><a href="assets/android-detail-dark.png" download>Download PNG</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/android-detail-scrolled-light.png"><img src="assets/android-detail-scrolled-light.png" alt="The subscription scrolled to its editor in light mode: the header is now solid paper with a hairline, and the editor's fields start just below it" width="1280" height="2856"></a>
+        <figcaption><h3>Scrolled under the header, light</h3><p>After Edit details: content is under the header, so the
+          solid paper has faded in behind it. No words show through (checked by pixel uniformity).</p><p class="meta">PNG, 1280 × 2856, 344 KB.</p>
+          <p class="links"><a href="assets/android-detail-scrolled-light.png">Open full size</a><a href="assets/android-detail-scrolled-light.png" download>Download PNG</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/android-detail-scrolled-dark.png"><img src="assets/android-detail-scrolled-dark.png" alt="The same scrolled editor view in dark mode, with a solid dark header" width="1280" height="2856"></a>
+        <figcaption><h3>Scrolled under the header, dark</h3><p class="meta">PNG, 1280 × 2856, 237 KB.</p>
+          <p class="links"><a href="assets/android-detail-scrolled-dark.png">Open full size</a><a href="assets/android-detail-scrolled-dark.png" download>Download PNG</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/android-list-scrolled-200-light.png"><img src="assets/android-list-scrolled-200-light.png" alt="The list at 200% text size, scrolled: the last subscription and the More section pass under a solid header" width="1280" height="2856"></a>
+        <figcaption><h3>List scrolled, 200% text, light</h3><p>At 100% the list fits the screen and does not scroll; at
+          200% it does, and the header turns solid the same way.</p><p class="meta">PNG, 1280 × 2856, 429 KB.</p>
+          <p class="links"><a href="assets/android-list-scrolled-200-light.png">Open full size</a><a href="assets/android-list-scrolled-200-light.png" download>Download PNG</a></p></figcaption>
+      </figure>
+    </div>
+    <p class="meta">Revision for all: app code <code>2f99d95</code>, captured for <code>34e7594</code> (debug build,
+      JavaScript from the development server). The notification icons in the status bar were already on this virtual
+      device; no other app was opened.</p>
+    <p><span class="label">Different data</span>Synthetic Cloud A shows "No renewal date estimated" here. The previous
+      review showed "Renews around 3 Nov 2026" for it, from an earlier test save; the stand-in resets when it
+      restarts. Comparing those screens compares different data as well as a different design. Other values were not
+      compared one by one.</p>
+  </section>
+
+  <section aria-labelledby="h-status">
+    <h2 id="h-status">Not verified</h2>
+    <ul class="status">
+      <li><span class="label">Pending</span><strong>TalkBack, used by a person.</strong> The loader's moving logo is
+        hidden from accessibility services, and its label stays the same. While it moves it sends a stream of "content
+        changed" events, with no announcements and no focus events. What TalkBack says has not been observed. How
+        TalkBack enters and leaves the new More options menu has not been checked either.</li>
+      <li><span class="label">Not run</span><strong>A screen reader on the website.</strong> Chrome's accessibility tree
+        was read: the menu follows the WAI-ARIA menu-button pattern, and the loader is one status. No screen reader was
+        run.</li>
+      <li><span class="label">Not run</span><strong>A physical phone and the release build.</strong> Everything Android
+        here is a debug build in the emulator.</li>
+      <li><span class="label">Not measured</span><strong>Performance on real hardware.</strong>
+        <ul>
+          <li><strong>Android:</strong> scrolling was measured with Android's frame statistics in the emulator. Janky
+            frames ranged 5.0–11.9% on the list and 4.7–10.1% on a subscription, against 3.3–13.8% and 8.7–12.2% at
+            the checkpoint, so no difference can be told from run-to-run noise.</li>
+          <li><strong>Website:</strong> headless Chrome had no GPU, so its frame timings say nothing about what blur
+            costs.</li>
+          <li>The recordings look smooth; that is an impression, not a measurement.</li>
+        </ul></li>
+      <li><span class="label">Not run</span><strong>Browsers other than Chrome.</strong> Without
+        <code>corner-shape</code> (Safari, Firefox) corners are ordinary rounded ones. Without
+        <code>backdrop-filter</code> the glass is opaque.</li>
+      <li><span class="label">Observed, not investigated</span>On the Android list at 100% text, one dump showed the
+        solid scroll background as 144 px tall, while the header is 324 px. The list does not scroll at that size, so
+        nothing showed. At 200% it covered the whole header, as in the screenshot above. A longer list at 100% has not
+        been tried.</li>
+      <li><span class="label">Pending</span><strong>Visual approval</strong> of the material, shapes and motion. The
+        palette and the logo are unchanged.</li>
+      <li><span class="label">Earlier recording</span>The previous review's website WebP has the same timing fault: its
+        frames were held for at least 20 ms, so its motion plays slower than real. Its source frames were not kept, so
+        it cannot be re-timed. Read its motion speed as not representative.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="h-urls">
+    <h2 id="h-urls">Direct file addresses (HTTPS)</h2>
+    <p class="meta">The same files, served by GitHub over HTTPS. Plain text, for tools that cannot open this page.</p>
+    <ul class="urls">
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/glass-depth-1/index.html</code> (this page's source, as text)</li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/glass-depth-1/assets/web-glass-recording.mp4</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/glass-depth-1/assets/web-glass-recording.webp</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/glass-depth-1/assets/android-glass-recording.mp4</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/glass-depth-1/assets/android-glass-recording.vtt</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/glass-depth-1/assets/android-glass-recording.webp</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/glass-depth-1/assets/web-overview-1280-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/glass-depth-1/assets/web-overview-1280-dark.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/glass-depth-1/assets/web-menu-1280-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/glass-depth-1/assets/web-menu-1280-dark.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/glass-depth-1/assets/web-390-scrolled-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/glass-depth-1/assets/web-390-scrolled-dark.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/glass-depth-1/assets/android-list-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/glass-depth-1/assets/android-list-dark.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/glass-depth-1/assets/android-menu-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/glass-depth-1/assets/android-menu-dark.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/glass-depth-1/assets/android-detail-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/glass-depth-1/assets/android-detail-dark.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/glass-depth-1/assets/android-detail-scrolled-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/glass-depth-1/assets/android-detail-scrolled-dark.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/glass-depth-1/assets/android-list-scrolled-200-light.png</code></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>A static page: plain HTML, images, videos and a caption file, with no script, no tracking and no login.</p>
+  </footer>
+</div>
+</body>
+</html>
