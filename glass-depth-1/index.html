@@ -42,7 +42,8 @@ section { display: grid; gap: 16px; }
 .phones { display: grid; grid-template-columns: repeat(2, minmax(0, 300px)); gap: 28px; justify-content: start; }
 figure { margin: 0; display: grid; gap: 10px; min-width: 0; align-content: start; }
 .frame { display: block; background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px; overflow: hidden; line-height: 0; }
-.frame img, .frame video { width: 100%; height: auto; display: block; }
+.frame img, video.frame { width: 100%; height: auto; display: block; }
+video.frame.narrow { max-width: 360px; }
 .narrow { max-width: 360px; }
 figcaption { display: grid; gap: 6px; font-size: 14px; color: var(--muted); }
 figcaption p { max-width: 72ch; }
