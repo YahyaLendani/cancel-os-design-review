@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noimageindex">
+<meta name="color-scheme" content="light dark">
+<title>Polish 1 Review</title>
+<style>
+/* The design-review galleries' reading column. Static: no script, no tracking. */
+:root { --canvas: #f3f0e9; --surface: #faf7f1; --hairline: #ddd7cc; --ink: #27241f; --muted: #5e574d; --accent-text: #a8340b; --caution: #ffe6d9; --focus: #3d6bff;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; --mono: ui-monospace, "SF Mono", Consolas, "Roboto Mono", monospace; }
+@media (prefers-color-scheme: dark) { :root { --canvas: #15120f; --surface: #1f1b17; --hairline: #38322b; --ink: #efe9e0; --muted: #b0a79b; --accent-text: #ff9668; --caution: #3a2418; --focus: #8aa6ff; } }
+* { box-sizing: border-box; }
+html { background: var(--canvas); }
+body { margin: 0; background: var(--canvas); color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.55; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 40px max(16px, env(safe-area-inset-right, 0px)) 64px max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: 40px; }
+header { display: grid; gap: 12px; max-width: 75ch; }
+h1 { font-size: clamp(26px, 4vw, 34px); line-height: 1.15; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
+h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0; font-weight: 600; }
+h3 { font-size: 15px; margin: 0; }
+p, ul, ol { margin: 0; }
+ul, ol { padding-left: 20px; }
+li + li { margin-top: 4px; }
+code { font-family: var(--mono); font-size: 0.88em; overflow-wrap: anywhere; }
+a { color: var(--accent-text); }
+a:focus-visible, video:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+section { display: grid; gap: 16px; }
+section > p, section > ul { max-width: 80ch; }
+.box { background: var(--caution); border-radius: 10px; padding: 12px 14px; display: grid; gap: 6px; max-width: 75ch; }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.phones { display: grid; grid-template-columns: repeat(2, minmax(0, 300px)); gap: 24px; justify-content: start; }
+figure { margin: 0; display: grid; gap: 8px; min-width: 0; align-content: start; }
+.frame { display: block; background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px; overflow: hidden; line-height: 0; }
+.frame img, video.frame { width: 100%; height: auto; display: block; }
+figcaption { font-size: 14px; color: var(--muted); display: grid; gap: 4px; }
+.meta { font-size: 13px; color: var(--muted); }
+.label { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--hairline); background: var(--surface); color: var(--accent-text); margin-right: 6px; }
+.status { display: grid; gap: 10px; padding: 0; list-style: none; max-width: 80ch; }
+.urls { display: grid; gap: 4px; padding: 0; list-style: none; font-size: 13px; }
+.urls li + li { margin-top: 0; }
+footer { font-size: 13px; color: var(--muted); max-width: 80ch; }
+@media (max-width: 760px) { .pair { grid-template-columns: minmax(0, 1fr); } .phones { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p><strong>Cancel OS</strong> · Earlier reviews: <a href="../">premium identity</a>, <a href="../glass-depth-1/">glass and depth</a>, <a href="../refine-2/">refine 2</a></p>
+    <h1>Design review: polish 1</h1>
+    <p>A small slice on the website's Subscriptions page, on top of the refine-2 layout accepted at <code>daf2e7b</code>.
+      The layout, palette and identity are unchanged. Android is unchanged in this slice and is not shown.</p>
+    <ul>
+      <li><strong>Edit works on the first press</strong>, even before the page is interactive.</li>
+      <li><strong>Focus:</strong> it moves into the editor's first field when Edit opens it, and returns to the row's
+        Edit on Done.</li>
+      <li><strong>Placeholders are readable</strong> (contrast was 2.57:1, now 5.9:1, in light).</li>
+      <li><strong>The spending bars no longer animate their height.</strong></li>
+      <li><strong>Every website transition uses the shared duration tokens.</strong></li>
+    </ul>
+    <p>Every screen uses synthetic test data (account <code>wizard@example.test</code>, services named "Synthetic …")
+      on a local stand-in server, in headless Chrome 155. No real person's data appears.</p>
+    <div class="box">
+      <p><strong>Still pending:</strong> motion approval, screen readers, physical devices and the release build.
+        Browsers other than Chrome and performance on real hardware were not tested.</p>
+      <p><strong>This is a public preview.</strong> Anyone with the link can open it. It asks search engines not to
+        index it, but that is a request, not access control.</p>
+    </div>
+    <p class="meta"><strong>Source revisions</strong> (commits in the private Cancel OS repository; not pushed, not
+      deployed). Each capture run printed the build it served: its BUILD_ID, git revision, <code>src</code> tree and any
+      uncommitted <code>src</code> files.</p>
+    <ul class="meta">
+      <li><span class="label">Before</span>Built from revision <code>209b254</code>, <code>src</code> tree
+        <code>46bd3705</code>, with no uncommitted <code>src</code>. Its app code is <code>8da352e</code>'s: the Edit
+        first-press fix, without this slice.</li>
+      <li><span class="label">After</span>Built from the same revision with the slice's nine <code>src</code> files
+        uncommitted. They were then committed unchanged as <code>05eaa5f</code> (<code>src</code> tree
+        <code>444961c6</code>).</li>
+      <li><span class="label">Recording</span>Built from <code>8c30c11</code>, the tested application checkpoint
+        (<code>src</code> tree <code>fdea4871</code>), with no uncommitted <code>src</code>. <code>8c30c11</code> adds
+        to <code>05eaa5f</code> only a fix that makes the Edit fallback keep the page's other query parameters.
+        Nothing on screen differs.</li>
+    </ul>
+  </header>
+
+  <section aria-labelledby="h-rec">
+    <h2 id="h-rec">Recording: <code>8c30c11</code>, 13.07 s at real speed</h2>
+    <figure>
+      <video class="frame" controls preload="metadata" playsinline width="960" height="738" src="assets/polish1-web.mp4">
+        <a href="assets/polish1-web.mp4">Recording (MP4)</a>
+      </video>
+      <figcaption>
+        <p>1280 × 900, light, motion on (set explicitly; headless Chrome on the recording machine defaults to reduced
+          motion). Keyboard only for the editor, and nothing is saved. Captions are drawn into the frame, with the
+          take's clock:</p>
+        <ol>
+          <li>0.4 s: the Subscriptions page.</li>
+          <li>1.3 s: Tab to the row's Edit, which shows its focus ring.</li>
+          <li>2.6 s: Enter. The editor opens in place, and focus moves into Name.</li>
+          <li>4.4 s: Tab through the fields, each taking focus on the 220 ms field transition.</li>
+          <li>8.3 s: Enter on Done. The editor closes, and focus returns to the row's Edit.</li>
+          <li>10.1 s: the pointer over the navigation; the icons move on the 280 ms spring token.</li>
+        </ol>
+        <p><strong>Focus, from the recording log</strong> (<a href="assets/record-polish1.txt">log</a>), not only
+          from the picture:</p>
+        <ul>
+          <li>before the final Enter, focus was on <code>button "Done"</code>;</li>
+          <li>after it, focus was on <code>button "Edit"</code>.</li>
+        </ul>
+        <p class="meta">CDP screencast frames (345 frames, a 13.066 s take), each drawn at its own timestamp and
+          recorded by Chrome's encoder, then rewritten as an ordinary MP4. It plays for 13.07 s, seekable to the end.
+          Captions are timed by the wall clock; the frame clock agreed within a 400 ms check. The bar-chart change is the
+          absence of an animation, so a recording can't show it. H.264, 960 × 738, 0.47 MB.
+          <a href="assets/polish1-web-keyframes.png">Key frames</a> (Edit focused, the editor with focus in Name,
+          Edit focused again after Done, the navigation hover).</p>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section aria-labelledby="h-focus">
+    <h2 id="h-focus">Focus: Edit, then Done (keyboard)</h2>
+    <div class="pair">
+      <figure><a class="frame" href="assets/before-row-editor-open-1280-light.png"><img src="assets/before-row-editor-open-1280-light.png" alt="Before: the row editor open after Edit; no field has focus" width="1280" height="900" loading="lazy"></a><figcaption><h3><span class="label">Before</span>Editor open, light</h3><p>Focus fell to the page.</p></figcaption></figure>
+      <figure><a class="frame" href="assets/after-row-editor-open-1280-light.png"><img src="assets/after-row-editor-open-1280-light.png" alt="After: the row editor open with a focus ring on the Name field" width="1280" height="900" loading="lazy"></a><figcaption><h3><span class="label">After</span>Editor open, light</h3><p>Focus is in Name.</p></figcaption></figure>
+      <figure><a class="frame" href="assets/before-row-after-done-1280-dark.png"><img src="assets/before-row-after-done-1280-dark.png" alt="Before, dark: after Done, no control has focus" width="1280" height="900" loading="lazy"></a><figcaption><h3><span class="label">Before</span>After Done, dark</h3><p>Focus on the page.</p></figcaption></figure>
+      <figure><a class="frame" href="assets/after-row-after-done-1280-dark.png"><img src="assets/after-row-after-done-1280-dark.png" alt="After, dark: after Done, a focus ring on the row's Edit" width="1280" height="900" loading="lazy"></a><figcaption><h3><span class="label">After</span>After Done, dark</h3><p>Focus back on the row's Edit, in view.</p></figcaption></figure>
+    </div>
+    <div class="phones">
+      <figure><a class="frame" href="assets/before-row-after-done-390-light.png"><img src="assets/before-row-after-done-390-light.png" alt="Before, 390 px: after Done the page shows the renewal calendar; no control has focus" width="780" height="1688" loading="lazy"></a><figcaption><h3><span class="label">Before</span>After Done, 390 px</h3></figcaption></figure>
+      <figure><a class="frame" href="assets/after-row-after-done-390-light.png"><img src="assets/after-row-after-done-390-light.png" alt="After, 390 px: after Done the page shows the renewal calendar; the focused Edit button is hidden under the top bar" width="780" height="1688" loading="lazy"></a><figcaption><h3><span class="label">After</span>After Done, 390 px</h3></figcaption></figure>
+    </div>
+    <div class="box">
+      <p><span class="label">Open finding</span><strong>At 390 px the returned focus is hidden under the top
+        bar.</strong></p>
+      <ul>
+        <li>After Done, focus is on the row's Edit, but Edit sits at 0–36 px, entirely under the 64 px sticky glass
+          top bar.</li>
+        <li>A point at Edit's centre lands on the bar, not on Edit.</li>
+        <li>At 1280 px, Edit is in view.</li>
+      </ul>
+      <p>Before this slice, focus was not returned at all. Measured on <code>8c30c11</code>'s code. Not fixed: no
+        application change was made for this review. It is a "focus not obscured" issue (WCAG 2.2, 2.4.11).</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-ph">
+    <h2 id="h-ph">Placeholders: 2.57 → 5.9:1 light, 3.35 → 6.64:1 dark</h2>
+    <div class="pair">
+      <figure><a class="frame" href="assets/before-manual-form-placeholders-1280-light.png"><img src="assets/before-manual-form-placeholders-1280-light.png" alt="Before: the manual entry form with faint placeholders" width="1280" height="900" loading="lazy"></a><figcaption><h3><span class="label">Before</span>Manual entry, light</h3></figcaption></figure>
+      <figure><a class="frame" href="assets/after-manual-form-placeholders-1280-light.png"><img src="assets/after-manual-form-placeholders-1280-light.png" alt="After: the manual entry form with readable placeholders" width="1280" height="900" loading="lazy"></a><figcaption><h3><span class="label">After</span>Manual entry, light</h3></figcaption></figure>
+    </div>
+    <p class="meta">The placeholders "Gym membership" and "9.99" are still lighter than entered values such as "KWD",
+      but less so than before. Distinctness was not tested with people.</p>
+  </section>
+
+  <section aria-labelledby="h-all">
+    <h2 id="h-all">All captures (before / after)</h2>
+    <ul>
+      <li>Editor opened by keyboard: 1280 light <a href="assets/before-row-editor-open-1280-light.png">before</a> /
+        <a href="assets/after-row-editor-open-1280-light.png">after</a>, dark
+        <a href="assets/before-row-editor-open-1280-dark.png">before</a> /
+        <a href="assets/after-row-editor-open-1280-dark.png">after</a>, 390
+        <a href="assets/before-row-editor-open-390-light.png">before</a> /
+        <a href="assets/after-row-editor-open-390-light.png">after</a></li>
+      <li>After Done: 1280 light <a href="assets/before-row-after-done-1280-light.png">before</a> /
+        <a href="assets/after-row-after-done-1280-light.png">after</a>, dark
+        <a href="assets/before-row-after-done-1280-dark.png">before</a> /
+        <a href="assets/after-row-after-done-1280-dark.png">after</a>, 390
+        <a href="assets/before-row-after-done-390-light.png">before</a> /
+        <a href="assets/after-row-after-done-390-light.png">after</a></li>
+      <li>Placeholders: 1280 light <a href="assets/before-manual-form-placeholders-1280-light.png">before</a> /
+        <a href="assets/after-manual-form-placeholders-1280-light.png">after</a>, dark
+        <a href="assets/before-manual-form-placeholders-1280-dark.png">before</a> /
+        <a href="assets/after-manual-form-placeholders-1280-dark.png">after</a>, 390
+        <a href="assets/before-manual-form-placeholders-390-light.png">before</a> /
+        <a href="assets/after-manual-form-placeholders-390-light.png">after</a></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="h-open">
+    <h2 id="h-open">Not verified or unresolved</h2>
+    <ul class="status">
+      <li><span class="label">Pending</span><strong>Motion approval.</strong> The duration changes are a few tens of
+        milliseconds; the recording shows them.</li>
+      <li><span class="label">Pending</span><strong>Screen readers</strong>, on the website and with TalkBack. Focus
+        movement was checked; what a screen reader announces was not observed.</li>
+      <li><span class="label">Pending</span><strong>Physical devices and the release build.</strong></li>
+      <li><span class="label">Not run</span><strong>Browsers other than Chrome; performance on real hardware.</strong></li>
+      <li><span class="label">Unresolved</span><strong>React error #412.</strong> A press made the moment the row
+        appears logs minified React error #412, for Edit and equally for the existing "How to cancel" link. It is
+        reproduced and pre-existing. Its cause and production impact are not established.</li>
+      <li><span class="label">Unresolved</span><strong>Whether the browser error-reporting SDK records full
+        URLs</strong>, including <code>?edit=&lt;row id&gt;</code>. Not verified. Product analytics and security
+        reports drop the query string.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="h-urls">
+    <h2 id="h-urls">Direct file addresses (HTTPS)</h2>
+    <p class="meta">The same files, served by GitHub over HTTPS. Plain text, for tools that cannot open this page.</p>
+    <ul class="urls">
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/index.html</code> (this page's source, as text)</li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/polish1-web.mp4</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/record-polish1.txt</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/polish1-web-keyframes.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/after-manual-form-placeholders-1280-dark.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/after-manual-form-placeholders-1280-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/after-manual-form-placeholders-390-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/after-row-after-done-1280-dark.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/after-row-after-done-1280-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/after-row-after-done-390-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/after-row-editor-open-1280-dark.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/after-row-editor-open-1280-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/after-row-editor-open-390-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/before-manual-form-placeholders-1280-dark.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/before-manual-form-placeholders-1280-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/before-manual-form-placeholders-390-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/before-row-after-done-1280-dark.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/before-row-after-done-1280-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/before-row-after-done-390-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/before-row-editor-open-1280-dark.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/before-row-editor-open-1280-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/before-row-editor-open-390-light.png</code></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>A static page: plain HTML, images and a video, with no script, no tracking and no login.</p>
+  </footer>
+</div>
+</body>
+</html>

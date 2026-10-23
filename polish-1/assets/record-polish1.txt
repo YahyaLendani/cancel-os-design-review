@@ -1,0 +1,9 @@
+polish1: served build BUILD_ID J0Lx4U_ra_le_Dfkysk7y; revision 8c30c11a59ae2797720e8f5414244463befafd19; src tree fdea48712e79423e60ba2a413278cad75d1f9554; uncommitted src at build time: none
+  mark 397 ms: Subscriptions, light, motion on. Keyboard only. (clock check: first frame 1792726206.676 s, wall 1792726207.073 s)
+  mark 1309 ms: Tab to the row's Edit: its focus ring.
+  mark 2628 ms: Enter: the editor opens in place, and focus moves into Name.
+  mark 4427 ms: Tab through the fields: each takes focus on the 220 ms field transition.
+  focus before Done: button "Done"
+  mark 8333 ms: Enter on Done: the editor closes, and focus returns to the row's Edit.
+  focus after Done: button "Edit"
+  mark 10140 ms: The pointer over the navigation: the icons move on the 280 ms spring token.
