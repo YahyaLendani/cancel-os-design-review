@@ -96,9 +96,13 @@ footer { font-size: 13px; color: var(--muted); max-width: 80ch; display: grid; g
       <li><strong>After:</strong> app code <code>daf2e7b</code> (branch <code>ui/refine-2</code>). Website captures
         were taken at 18:44, after the last edit to any website file (18:38). Android captures and both recordings were
         taken 18:57–19:15, after the last edit to any phone file (18:53). Those files were committed unchanged as
-        <code>daf2e7b</code> at 19:28. The order of edits and captures is established from file modification times;
-        the website build's own time was not recorded. Android bundle <code>a3ab59b7…</code>, the same bundle the
-        existing Android journey check passed on (43 of 43).</li>
+        <code>daf2e7b</code> at 19:28. Android bundle <code>a3ab59b7…</code>, the same bundle the existing Android
+        journey check passed on (43 of 43).</li>
+      <li><span class="label">Limitation</span>The order of edits and captures rests on file modification times. They
+        support this provenance but <strong>cannot conclusively establish which revision a running build
+        served</strong>. The website build's own time and source were not recorded, and the Android bundle hash was not
+        tied to a source tree. Read the captures as consistent with <code>daf2e7b</code>, not proven to be it. Later
+        captures record the served build directly.</li>
       <li><strong>Captures and recordings:</strong> evidence commit <code>9687ac2</code>. Before and after use the
         same capture scripts and the same synthetic data, on a freshly started stand-in.</li>
     </ul>
