@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noimageindex">
+<meta name="color-scheme" content="light dark">
+<title>Refine 2 Review</title>
+<style>
+/* The glass-depth-1 page's reading column; before and after sit side by side. */
+:root {
+  --canvas: #f3f0e9; --surface: #faf7f1; --hairline: #ddd7cc; --ink: #27241f; --muted: #5e574d;
+  --accent-text: #a8340b; --after-text: #2f5d3a; --caution: #ffe6d9; --focus: #3d6bff;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Consolas, "Roboto Mono", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --canvas: #15120f; --surface: #1f1b17; --hairline: #38322b; --ink: #efe9e0; --muted: #b0a79b;
+    --accent-text: #ff9668; --after-text: #9fd3a8; --caution: #3a2418; --focus: #8aa6ff;
+  }
+}
+* { box-sizing: border-box; }
+html { background: var(--canvas); }
+body { margin: 0; background: var(--canvas); color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.55; }
+.wrap {
+  max-width: 1080px; margin: 0 auto; padding: 40px max(16px, env(safe-area-inset-right, 0px)) 64px
+  max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: 44px;
+}
+header { display: grid; gap: 12px; max-width: 72ch; }
+h1 { font-size: clamp(26px, 4vw, 34px); line-height: 1.15; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
+h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0; font-weight: 600; }
+h3 { font-size: 15px; margin: 0; }
+p, ul, ol { margin: 0; }
+ul, ol { padding-left: 20px; }
+li + li { margin-top: 4px; }
+code { font-family: var(--mono); font-size: 0.88em; overflow-wrap: anywhere; }
+a { color: var(--accent-text); }
+a:focus-visible, video:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+.box { background: var(--caution); border-radius: 10px; padding: 12px 14px; display: grid; gap: 6px; max-width: 72ch; }
+section { display: grid; gap: 18px; }
+section > p, section > ul { max-width: 80ch; }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
+.phones { display: grid; grid-template-columns: repeat(2, minmax(0, 300px)); gap: 28px; justify-content: start; }
+figure { margin: 0; display: grid; gap: 10px; min-width: 0; align-content: start; }
+.frame { display: block; background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px; overflow: hidden; line-height: 0; }
+.frame img, video.frame { width: 100%; height: auto; display: block; }
+video.frame.narrow { max-width: 360px; }
+figcaption { display: grid; gap: 6px; font-size: 14px; color: var(--muted); }
+figcaption p { max-width: 72ch; }
+figcaption ol { display: grid; gap: 2px; }
+.meta { font-size: 13px; }
+.links { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 14px; }
+.label {
+  display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 999px;
+  border: 1px solid var(--hairline); background: var(--surface); color: var(--accent-text); margin-right: 6px;
+}
+.label.after { color: var(--after-text); }
+table { border-collapse: collapse; font-size: 14px; max-width: 100%; }
+.scroll { overflow-x: auto; max-width: 100%; }
+th, td { text-align: left; padding: 6px 12px 6px 0; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+th { font-weight: 600; }
+.status { display: grid; gap: 10px; padding: 0; list-style: none; max-width: 80ch; }
+.urls { display: grid; gap: 4px; padding: 0; list-style: none; font-size: 13px; }
+.urls li + li { margin-top: 0; }
+footer { font-size: 13px; color: var(--muted); max-width: 80ch; display: grid; gap: 6px; }
+@media (max-width: 760px) {
+  .grid2 { grid-template-columns: minmax(0, 1fr); }
+  .phones { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p><strong>Cancel OS</strong> · Earlier reviews: <a href="../">premium identity</a>, <a href="../glass-depth-1/">glass and depth</a></p>
+    <h1>Design review: refine 2</h1>
+    <p>Hierarchy, row actions, menus and motion, on top of the glass-and-depth slice. On Android, the subscription
+      list has one Import action and no duplicated "More" section, and the account line is moved below the
+      subscriptions. On the website, each subscription row has one primary action and a contextual menu. Both
+      platforms' menus now use the same measurements. The logo's lift-and-return loop is re-timed. The palette, the
+      cut-tile logo, the solid surfaces behind money and the restrained glass on navigation are unchanged.</p>
+    <p>Every screen uses synthetic test data (account <code>wizard@example.test</code>, services named
+      "Synthetic …") on a local stand-in server, in headless Chrome or the Android emulator. No real person's data
+      appears.</p>
+    <div class="box">
+      <p><strong>This is a public preview.</strong> Anyone with the link can open it. It asks search engines not to
+        index it, but that is a request, not access control.</p>
+    </div>
+    <p class="meta"><strong>Source revisions</strong> (commits in the private Cancel OS repository; not pushed, not
+      deployed):</p>
+    <ul class="meta">
+      <li><strong>Before:</strong> the checkpoint <code>aa20820</code> (tag <code>checkpoint/pre-refine-2</code>). Its
+        app code is unchanged since <code>2f99d95</code>, the glass-and-depth slice. Captured 18:21–18:34 local time
+        on 22 October 2026, before the first source edit (18:36). Android JavaScript bundle <code>efdd2708…</code>.</li>
+      <li><strong>After:</strong> app code <code>daf2e7b</code> (branch <code>ui/refine-2</code>). Website captures
+        were taken at 18:44, after the last edit to any website file (18:38). Android captures and both recordings were
+        taken 18:57–19:15, after the last edit to any phone file (18:53). Those files were committed unchanged as
+        <code>daf2e7b</code> at 19:28. The order of edits and captures is established from file modification times;
+        the website build's own time was not recorded. Android bundle <code>a3ab59b7…</code>, the same bundle the
+        existing Android journey check passed on (43 of 43).</li>
+      <li><strong>Captures and recordings:</strong> evidence commit <code>9687ac2</code>. Before and after use the
+        same capture scripts and the same synthetic data, on a freshly started stand-in.</li>
+    </ul>
+  </header>
+
+  <section aria-labelledby="h-changed">
+    <h2 id="h-changed">What changed</h2>
+    <ul>
+      <li><strong>Android list.</strong> The count comes first, then one Import button with its line "Read a CSV or
+        PDF on this phone, then review before anything is saved". The "More" section is removed: it repeated Import
+        and the header menu. Explore services, Reminder settings and Settings now live only in the header's More options
+        menu, so every function is still reachable. "Signed in as …" moved to the end, beside Sign out.</li>
+      <li><strong>Website rows.</strong> Up to six equal buttons became three controls:
+        <ul>
+          <li><strong>How to cancel</strong> (the old "Cancel" link, renamed so it cannot be read as "cancel this edit");</li>
+          <li><strong>Edit</strong>, the row's one primary action;</li>
+          <li><strong>More actions for &lt;name&gt;</strong>, a menu holding Cheaper plans and Alternatives (when the
+            row is matched to a merchant), Watch or Unwatch, and Remove, last and apart, in the error red.</li>
+        </ul>
+        The menu follows the WAI-ARIA menu-button keyboard model.</li>
+      <li><strong>Menus, measured the same on both platforms.</strong> See the table below. The Android menu is now
+        opaque: at the previous 94% tint the words beneath showed through, and Android here has no blur.</li>
+      <li><strong>Motion.</strong> The logo's tilt peaks at 7° (was 9°). The tile answers the corner's landing with
+        one faint push. The cycle lasts 2 s, including 0.4 s of rest (was 1.8 s). It runs only while real work is
+        pending and is static under reduced motion. Menus act first, then fade out over 120 ms, and opening one again
+        mid-fade reverses the fade. Navigation transitions were reviewed and left unchanged. No amount is
+        animated.</li>
+    </ul>
+    <p class="meta"><strong>Research note:</strong> the brief asked for Mobbin. No Mobbin skill or connector was
+      available, so none was used and no Mobbin reference is claimed. The keyboard model comes from the WAI-ARIA
+      Authoring Practices (read), and the menu's surface from Material Components for Android's menu documentation
+      (read). Two patterns are from memory and were not checked against the guidelines: "secondary destinations in
+      the overflow menu" and "destructive item last and apart". No named app was studied.</p>
+  </section>
+
+  <section aria-labelledby="h-motion">
+    <h2 id="h-motion">Recordings, real speed, with playback controls</h2>
+    <div class="grid2">
+      <figure>
+        <video class="frame" controls preload="metadata" playsinline width="960" height="739" src="assets/refine-web.mp4">
+          <a href="assets/refine-web.mp4">Website recording (MP4)</a>
+        </video>
+        <figcaption>
+          <h3>Website, 21.7 s</h3>
+          <p>Captions are drawn into the top of each frame, with the take's clock:</p>
+          <ol>
+            <li>0.0 s: the dashboard. The subscriptions read is held 3 s at the local stand-in.</li>
+            <li>0.8 s: Subscriptions. The loader's lift-and-return (hidden for its first 400 ms), then the list; the
+              current-page capsule glides.</li>
+            <li>5.3 s: each row shows How to cancel and Edit; the rest is in its More actions menu.</li>
+            <li>6.4 s: the menu grows from its button; the highlight follows the pointer; Remove is last, apart.</li>
+            <li>8.4 s: Escape closes it, and focus goes back to its button.</li>
+            <li>9.3 s: by keyboard, Enter opens it on the first item; Down, End and Home move.</li>
+            <li>11.8 s: How to cancel opens the guide at once.</li>
+            <li>13.6 s: back to the list.</li>
+            <li>15.0 s: the Appearance menu, the same component with the same measurements.</li>
+            <li>16.2 s: Dark, applied at once.</li>
+            <li>17.8 s: the capsule glides to Upcoming and back.</li>
+            <li>21.2 s: back to Match system.</li>
+          </ol>
+          <p class="meta"><strong>Timing.</strong> Headless Chrome 155 at 1280 × 900, CDP screencast frames, light
+            theme, motion on. Each frame is drawn at its own timestamp and recorded by Chrome's encoder, then rewritten
+            as an ordinary MP4. From the first click on, every captioned moment plays within 0.16 s of the take. The
+            opening still frame is about 0.16 s shorter than it was live. Chrome sends a frame only when the screen
+            changes, so a still stretch is one held frame. Nothing is saved: Watch and Remove are not chosen. H.264,
+            960 × 739, 2.3 MB.</p>
+          <p class="links"><a href="assets/refine-web.mp4">Open MP4</a><a href="assets/refine-web.mp4" download>Download MP4</a></p>
+        </figcaption>
+      </figure>
+      <figure>
+        <video class="frame narrow" controls preload="metadata" playsinline width="720" height="1280" src="assets/refine-android.mp4">
+          <track kind="captions" src="assets/refine-android.vtt" srclang="en" label="English" default>
+          <a href="assets/refine-android.mp4">Android recording (MP4)</a>
+        </video>
+        <figcaption>
+          <h3>Android emulator, 33.2 s</h3>
+          <p>The emulator's own screen recording, unedited. Captions are a separate track
+            (<a href="assets/refine-android.vtt">WebVTT</a>):</p>
+          <ol>
+            <li>3.7 s: sign in, with the list read held 3 s at the local stand-in: the loader's lift-and-return, then
+              the list.</li>
+            <li>9.6 s: the list: the count, one Import action, the subscriptions; the account and Sign out at the
+              end.</li>
+            <li>14.0 s: More options: the menu grows from its button; Back closes it, and it fades out after.</li>
+            <li>23.1 s: Explore services, chosen from the menu: the screen opens at once; the menu fades out
+              after.</li>
+            <li>25.6 s: back to the list.</li>
+            <li>29.5 s: a subscription: the row's pressed state, then the screen slides in.</li>
+            <li>31.8 s: Back: it slides away.</li>
+          </ol>
+          <p class="meta"><strong>Timing.</strong> Pixel 10 Pro emulator, Android 16, debug build with JavaScript from
+            the development server. The video is the emulator's clock. Caption times come from the harness's clock,
+            marked after each tap returns, so a caption can be a few hundred milliseconds off its moment in the picture.
+            A debug build in an emulator says nothing about speed on a phone. The status bar's notification icons were
+            already on this virtual device. H.264, 720 × 1280 (the 1280 × 2856 screen, letterboxed),
+            3.7 MB.</p>
+          <p class="links"><a href="assets/refine-android.mp4">Open MP4</a><a href="assets/refine-android.mp4" download>Download MP4</a></p>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-web">
+    <h2 id="h-web">Website rows, before and after (headless Chrome)</h2>
+    <div class="grid2">
+      <figure>
+        <a class="frame" href="assets/before-web-overview-1280-light.png"><img src="assets/before-web-overview-1280-light.png" alt="The website&#x27;s subscriptions overview before refine 2, light: each row carries up to six equal buttons (Unwatch, Cancel, Cheaper plans, Alternatives, Edit, Remove)" width="1280" height="900" loading="lazy"></a>
+        <figcaption><h3><span class="label">Before</span>Subscriptions, light, 1280 px</h3><p>Up to six buttons of equal weight under every amount.</p><p class="meta">PNG, 1280 × 900, 279 KB. <a href="assets/before-web-overview-1280-light.png">Full size</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/after-web-overview-1280-light.png"><img src="assets/after-web-overview-1280-light.png" alt="The same overview after refine 2, light: each row shows How to cancel, Edit and a round More actions button" width="1280" height="900" loading="lazy"></a>
+        <figcaption><h3><span class="label after">After</span>Subscriptions, light, 1280 px</h3><p>How to cancel and Edit stay in sight; Edit is the one bordered button; the rest is in the row's More actions menu.</p><p class="meta">PNG, 1280 × 900, 272 KB. <a href="assets/after-web-overview-1280-light.png">Full size</a></p></figcaption>
+      </figure>
+    </div>
+    <div class="grid2">
+      <figure>
+        <a class="frame" href="assets/before-web-overview-1280-dark.png"><img src="assets/before-web-overview-1280-dark.png" alt="The overview before refine 2 in dark mode" width="1280" height="900" loading="lazy"></a>
+        <figcaption><h3><span class="label">Before</span>Subscriptions, dark, 1280 px</h3><p class="meta">PNG, 1280 × 900, 236 KB. <a href="assets/before-web-overview-1280-dark.png">Full size</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/after-web-overview-1280-dark.png"><img src="assets/after-web-overview-1280-dark.png" alt="The overview after refine 2 in dark mode" width="1280" height="900" loading="lazy"></a>
+        <figcaption><h3><span class="label after">After</span>Subscriptions, dark, 1280 px</h3><p class="meta">PNG, 1280 × 900, 229 KB. <a href="assets/after-web-overview-1280-dark.png">Full size</a></p></figcaption>
+      </figure>
+    </div>
+    <div class="phones">
+      <figure>
+        <a class="frame" href="assets/before-web-rows-390-light.png"><img src="assets/before-web-rows-390-light.png" alt="The rows at 390 px wide before refine 2: the buttons wrap onto two lines on a row with a merchant" width="780" height="1688" loading="lazy"></a>
+        <figcaption><h3><span class="label">Before</span>Phone width, 390 px, light</h3><p class="meta">PNG, 780 × 1688, 243 KB. <a href="assets/before-web-rows-390-light.png">Full size</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/after-web-rows-390-light.png"><img src="assets/after-web-rows-390-light.png" alt="The rows at 390 px wide after refine 2: one line of actions per row" width="780" height="1688" loading="lazy"></a>
+        <figcaption><h3><span class="label after">After</span>Phone width, 390 px, light</h3><p class="meta">PNG, 780 × 1688, 225 KB. <a href="assets/after-web-rows-390-light.png">Full size</a></p></figcaption>
+      </figure>
+    </div>
+    <div class="grid2">
+      <figure>
+        <a class="frame" href="assets/before-web-rows-zoom200-light.png"><img src="assets/before-web-rows-zoom200-light.png" alt="The rows at 200% browser zoom before refine 2" width="1280" height="900" loading="lazy"></a>
+        <figcaption><h3><span class="label">Before</span>200% zoom, light</h3><p class="meta">PNG, 1280 × 900, 167 KB. <a href="assets/before-web-rows-zoom200-light.png">Full size</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/after-web-rows-zoom200-light.png"><img src="assets/after-web-rows-zoom200-light.png" alt="The rows at 200% browser zoom after refine 2" width="1280" height="900" loading="lazy"></a>
+        <figcaption><h3><span class="label after">After</span>200% zoom, light</h3><p>At 200% (a 640 px wide layout) nothing scrolls sideways.</p><p class="meta">PNG, 1280 × 900, 164 KB. <a href="assets/after-web-rows-zoom200-light.png">Full size</a></p></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-rowmenu">
+    <h2 id="h-rowmenu">Website: the row's More actions menu, open (new)</h2>
+    <div class="grid2">
+      <figure>
+        <a class="frame" href="assets/after-web-row-menu-1280-light.png"><img src="assets/after-web-row-menu-1280-light.png" alt="The More actions menu open under its button on the first row, light: Unwatch with the line Stop getting renewal reminders for this one; a separator; Remove in red with the line Not a subscription" width="1280" height="900" loading="lazy"></a>
+        <figcaption><h3>Open, light</h3><p>Anchored 6 px under its button, right edges aligned. This row has no merchant match, so it holds Watch/Unwatch and Remove; a matched row adds Cheaper plans and Alternatives above them. Remove is last, after a separator, in the error red.</p><p class="meta">PNG, 1280 × 900, 282 KB. <a href="assets/after-web-row-menu-1280-light.png">Full size</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/after-web-row-menu-1280-dark.png"><img src="assets/after-web-row-menu-1280-dark.png" alt="The same row menu open in dark mode, smoked glass" width="1280" height="900" loading="lazy"></a>
+        <figcaption><h3>Open, dark</h3><p class="meta">PNG, 1280 × 900, 239 KB. <a href="assets/after-web-row-menu-1280-dark.png">Full size</a></p></figcaption>
+      </figure>
+    </div>
+    <div class="grid2">
+      <figure>
+        <a class="frame" href="assets/after-web-row-menu-flipped-1280-light.png"><img src="assets/after-web-row-menu-flipped-1280-light.png" alt="The row menu opening above its button in a window 480 px tall, inside the window" width="1280" height="480" loading="lazy"></a>
+        <figcaption><h3>No room below: it opens above</h3><p>A window 480 px tall, so there is no room under the button: the menu opens above it and grows from the corner it is anchored to.</p><p class="meta">PNG, 1280 × 480, 202 KB. <a href="assets/after-web-row-menu-flipped-1280-light.png">Full size</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/after-web-row-menu-zoom200-light.png"><img src="assets/after-web-row-menu-zoom200-light.png" alt="The row menu open at 200% browser zoom, inside the window" width="1280" height="900" loading="lazy"></a>
+        <figcaption><h3>Open at 200% zoom</h3><p>It narrows to stay inside the window; nothing scrolls sideways.</p><p class="meta">PNG, 1280 × 900, 188 KB. <a href="assets/after-web-row-menu-zoom200-light.png">Full size</a></p></figcaption>
+      </figure>
+    </div>
+    <div class="phones">
+      <figure>
+        <a class="frame" href="assets/after-web-row-menu-390-light.png"><img src="assets/after-web-row-menu-390-light.png" alt="The row menu open at 390 px wide under the glass top bar" width="780" height="1688" loading="lazy"></a>
+        <figcaption><h3>Open at 390 px</h3><p class="meta">PNG, 780 × 1688, 225 KB. <a href="assets/after-web-row-menu-390-light.png">Full size</a></p></figcaption>
+      </figure>
+    </div>
+    <div class="grid2">
+      <figure>
+        <a class="frame" href="assets/before-web-appearance-menu-1280-light.png"><img src="assets/before-web-appearance-menu-1280-light.png" alt="The Appearance menu before refine 2: Match system (checked), Light, Dark, 8 px under its button" width="1280" height="900" loading="lazy"></a>
+        <figcaption><h3><span class="label">Before</span>Appearance menu, light</h3><p class="meta">PNG, 1280 × 900, 284 KB. <a href="assets/before-web-appearance-menu-1280-light.png">Full size</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/after-web-appearance-menu-1280-light.png"><img src="assets/after-web-appearance-menu-1280-light.png" alt="The Appearance menu after refine 2, now built on the same shared menu as the rows" width="1280" height="900" loading="lazy"></a>
+        <figcaption><h3><span class="label after">After</span>Appearance menu, light</h3><p>Now the same component as the row menu: the same corner, padding, gap, shadow and keyboard model.</p><p class="meta">PNG, 1280 × 900, 277 KB. <a href="assets/after-web-appearance-menu-1280-light.png">Full size</a></p></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-android">
+    <h2 id="h-android">Android list and header menu, before and after (emulator)</h2>
+    <div class="phones">
+      <figure>
+        <a class="frame" href="assets/before-android-light-100-list-top.png"><img src="assets/before-android-light-100-list-top.png" alt="The Android list before refine 2, light: Signed in as wizard@example.test above the count, Import a statement, three synthetic subscriptions, then a MORE section repeating Import a statement with Explore services, Reminder settings and Settings, then Sign out" width="1280" height="2856" loading="lazy"></a>
+        <figcaption><h3><span class="label">Before</span>List, light, 100% text</h3><p>Import appears twice; the MORE section repeats the header menu; the account line comes first.</p><p class="meta">PNG, 1280 × 2856, 586 KB. <a href="assets/before-android-light-100-list-top.png">Full size</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/after-android-light-100-list-top.png"><img src="assets/after-android-light-100-list-top.png" alt="The Android list after refine 2, light: 3 active, one Import a statement button with the line Read a CSV or PDF on this phone, then review before anything is saved, three synthetic subscriptions, then Signed in as wizard@example.test and Sign out" width="1280" height="2856" loading="lazy"></a>
+        <figcaption><h3><span class="label after">After</span>List, light, 100% text</h3><p>One Import action; the subscriptions follow it; the account line is at the end, by Sign out.</p><p class="meta">PNG, 1280 × 2856, 644 KB. <a href="assets/after-android-light-100-list-top.png">Full size</a></p></figcaption>
+      </figure>
+    </div>
+    <div class="phones">
+      <figure>
+        <a class="frame" href="assets/before-android-dark-100-list-top.png"><img src="assets/before-android-dark-100-list-top.png" alt="The Android list before refine 2, dark" width="1280" height="2856" loading="lazy"></a>
+        <figcaption><h3><span class="label">Before</span>List, dark, 100% text</h3><p class="meta">PNG, 1280 × 2856, 317 KB. <a href="assets/before-android-dark-100-list-top.png">Full size</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/after-android-dark-100-list-top.png"><img src="assets/after-android-dark-100-list-top.png" alt="The Android list after refine 2, dark" width="1280" height="2856" loading="lazy"></a>
+        <figcaption><h3><span class="label after">After</span>List, dark, 100% text</h3><p class="meta">PNG, 1280 × 2856, 264 KB. <a href="assets/after-android-dark-100-list-top.png">Full size</a></p></figcaption>
+      </figure>
+    </div>
+    <div class="phones">
+      <figure>
+        <a class="frame" href="assets/before-android-light-100-menu.png"><img src="assets/before-android-light-100-menu.png" alt="The header&#x27;s More options menu open before refine 2, light: Explore services, Reminder settings, Settings, a 94% tint through which the account line shows" width="1280" height="2856" loading="lazy"></a>
+        <figcaption><h3><span class="label">Before</span>Header menu open, light</h3><p>A 94% tint: the words beneath show through it.</p><p class="meta">PNG, 1280 × 2856, 530 KB. <a href="assets/before-android-light-100-menu.png">Full size</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/after-android-light-100-menu.png"><img src="assets/after-android-light-100-menu.png" alt="The header&#x27;s More options menu open after refine 2, light: the same three items on an opaque menu" width="1280" height="2856" loading="lazy"></a>
+        <figcaption><h3><span class="label after">After</span>Header menu open, light</h3><p>Now the one home of Explore services, Reminder settings and Settings; opaque, with the website's corner, padding, gap and shadow.</p><p class="meta">PNG, 1280 × 2856, 558 KB. <a href="assets/after-android-light-100-menu.png">Full size</a></p></figcaption>
+      </figure>
+    </div>
+    <div class="phones">
+      <figure>
+        <a class="frame" href="assets/before-android-dark-100-menu.png"><img src="assets/before-android-dark-100-menu.png" alt="The header menu open before refine 2, dark" width="1280" height="2856" loading="lazy"></a>
+        <figcaption><h3><span class="label">Before</span>Header menu open, dark</h3><p class="meta">PNG, 1280 × 2856, 325 KB. <a href="assets/before-android-dark-100-menu.png">Full size</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/after-android-dark-100-menu.png"><img src="assets/after-android-dark-100-menu.png" alt="The header menu open after refine 2, dark" width="1280" height="2856" loading="lazy"></a>
+        <figcaption><h3><span class="label after">After</span>Header menu open, dark</h3><p class="meta">PNG, 1280 × 2856, 260 KB. <a href="assets/after-android-dark-100-menu.png">Full size</a></p></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-android200">
+    <h2 id="h-android200">Android at 200% text size</h2>
+    <div class="phones">
+      <figure>
+        <a class="frame" href="assets/before-android-light-200-list-top.png"><img src="assets/before-android-light-200-list-top.png" alt="The Android list at 200% text before refine 2: the account line wraps above the count" width="1280" height="2856" loading="lazy"></a>
+        <figcaption><h3><span class="label">Before</span>List, 200% text, top</h3><p class="meta">PNG, 1280 × 2856, 644 KB. <a href="assets/before-android-light-200-list-top.png">Full size</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/after-android-light-200-list-top.png"><img src="assets/after-android-light-200-list-top.png" alt="The Android list at 200% text after refine 2: 3 active, Import, the three subscriptions, then the account line and Sign out, all on one screen" width="1280" height="2856" loading="lazy"></a>
+        <figcaption><h3><span class="label after">After</span>List, 200% text, top</h3><p>At 200% the shorter list now fits on one screen.</p><p class="meta">PNG, 1280 × 2856, 698 KB. <a href="assets/after-android-light-200-list-top.png">Full size</a></p></figcaption>
+      </figure>
+    </div>
+    <div class="phones">
+      <figure>
+        <a class="frame" href="assets/before-android-light-200-list-end.png"><img src="assets/before-android-light-200-list-end.png" alt="The Android list at 200% text before refine 2, scrolled to its end: the MORE section and Sign out" width="1280" height="2856" loading="lazy"></a>
+        <figcaption><h3><span class="label">Before</span>List, 200% text, scrolled to the end</h3><p class="meta">PNG, 1280 × 2856, 441 KB. <a href="assets/before-android-light-200-list-end.png">Full size</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/after-android-light-200-list-end.png"><img src="assets/after-android-light-200-list-end.png" alt="The Android list at 200% text after refine 2 at its end, the same as its top because it no longer scrolls" width="1280" height="2856" loading="lazy"></a>
+        <figcaption><h3><span class="label after">After</span>List, 200% text, scrolled to the end</h3><p>The list no longer scrolls at 200%, so its end is its top.</p><p class="meta">PNG, 1280 × 2856, 694 KB. <a href="assets/after-android-light-200-list-end.png">Full size</a></p></figcaption>
+      </figure>
+    </div>
+    <div class="phones">
+      <figure>
+        <a class="frame" href="assets/before-android-light-200-menu.png"><img src="assets/before-android-light-200-menu.png" alt="The header menu open at 200% text before refine 2: the account line shows through the menu" width="1280" height="2856" loading="lazy"></a>
+        <figcaption><h3><span class="label">Before</span>Header menu open, 200% text</h3><p class="meta">PNG, 1280 × 2856, 568 KB. <a href="assets/before-android-light-200-menu.png">Full size</a></p></figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="assets/after-android-light-200-menu.png"><img src="assets/after-android-light-200-menu.png" alt="The header menu open at 200% text after refine 2: opaque, items 48 dp or taller" width="1280" height="2856" loading="lazy"></a>
+        <figcaption><h3><span class="label after">After</span>Header menu open, 200% text</h3><p>Each item at least 48 dp tall (156 px at 200%).</p><p class="meta">PNG, 1280 × 2856, 598 KB. <a href="assets/after-android-light-200-menu.png">Full size</a></p></figcaption>
+      </figure>
+    </div>
+    <p class="meta">The website at 200% browser zoom is shown above, among the website rows and the row menu.</p>
+  </section>
+
+  <section aria-labelledby="h-menus">
+    <h2 id="h-menus">Menu measurements</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th scope="col"></th><th scope="col">Before, website</th><th scope="col">Before, Android</th><th scope="col">After, both</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Corner</th><td>18 px (24 squircle)</td><td>26 dp</td><td>16 (20 px squircle where Chrome draws it)</td></tr>
+          <tr><th scope="row">Padding</th><td>6 px</td><td>10 dp</td><td>6</td></tr>
+          <tr><th scope="row">Item corner</th><td>10 (13 squircle)</td><td>16 dp</td><td>10 (13 squircle)</td></tr>
+          <tr><th scope="row">Gap to button</th><td>8 px</td><td>4 dp</td><td>6, right edges aligned</td></tr>
+          <tr><th scope="row">Item height</th><td>44 px or more</td><td>48 dp</td><td>44 px or more (pointer) / 48 dp or more (touch)</td></tr>
+          <tr><th scope="row">Shadow</th><td>the glass shadow</td><td>similar, different values</td><td>the website's values on both</td></tr>
+          <tr><th scope="row">Surface</th><td>glass, 90% with 34 px blur</td><td>94% tint, no blur</td><td>website unchanged; Android opaque</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-checks">
+    <h2 id="h-checks">What was checked</h2>
+    <ul>
+      <li><strong>Website</strong> (1280 px light and dark, 390 px, 200% zoom, reduced motion): 33 of 33 checks,
+        covering the row's controls and their names, the menu's anchoring and flip, 44 px items, keyboard (Enter,
+        Space, Up, Down, Home, End, typeahead, Escape returning focus, Tab moving on), no sideways scroll at 390 px or
+        200%, and no scale or movement under reduced motion.</li>
+      <li><strong>Android</strong> (light and dark at 100%, light at 200%): 31 of 31 checks, covering one Import
+        action, no "More" section, the account line after the subscriptions, and the menu's anchoring and 48 dp items.
+        Explore services, Reminder settings, Settings and Import each opened. The existing Android journey check: 43
+        of 43.</li>
+      <li><strong>Contrast:</strong> 194 of 194 token checks, including the error red on the menu glass over every
+        ground (lowest 4.88:1).</li>
+    </ul>
+    <div class="box">
+      <p><strong>Remove's behaviour is unchanged, and has no confirmation step.</strong> It never had one, and none
+        was added. Remove is now the last item in the row's menu. Choosing it submits the same per-row delete form as
+        before, and the item's accessible name names its row ("Remove Synthetic Cloud A").</p>
+      <p>The check behind this pressed Remove with the page's form submission intercepted, so nothing was sent. It
+        established that Remove submits its own row's delete form, the menu closes at once, and the row stays on the
+        page. <strong>It does not establish an end-to-end deletion result</strong>: no deletion was performed or
+        observed in this slice.</p>
+    </div>
+    <div class="box">
+      <p><strong>A first-load Edit failure in one website check, investigated.</strong> On a fresh build, the check
+        pressed a row's Edit as soon as the server-rendered row appeared, and no editor opened.</p>
+      <ul>
+        <li><strong>Method:</strong> the same press was compared at <code>aa20820</code> and <code>daf2e7b</code> under
+          the same fresh-build conditions, 90 presses each.</li>
+        <li><strong>Cause:</strong> every lost press landed in the first moments of hydration, 2–15 ms after React
+          attached its click listener and before the Edit button was hydrated.</li>
+        <li><strong>The race predates this slice:</strong> 5 of 90 presses were lost at <code>aa20820</code>, 11 of 90 at
+          <code>daf2e7b</code>. Those rates cannot be told apart with this sample (p = 0.19), so whether refine 2 makes
+          a lost press more likely remains open.</li>
+        <li><strong>No lost interaction:</strong> a press after hydration opened the editor every time in both trees,
+          and neither logged a hydration error.</li>
+        <li><strong>Hydration is slightly later:</strong> about 13 ms at the median (113 → 126 ms after
+          navigation).</li>
+      </ul>
+      <p>The check now presses Edit until the editor opens, the repository's existing pattern for this. It passed on a
+        fresh and a reused build, with the editor opening on the first press both times, so the retry itself has not
+        yet run in a real check. Evidence: commit <code>283dfce</code>.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-status">
+    <h2 id="h-status">Not verified</h2>
+    <ul class="status">
+      <li><span class="label">Pending</span><strong>Screen readers.</strong> TalkBack, used by a person: how it enters
+        and leaves the Android menu (a React Native <code>Modal</code>), and how it reads the moved account line. On
+        the website, the accessibility tree and keyboard were checked, but no screen reader was run.</li>
+      <li><span class="label">Not run</span><strong>A physical phone and the release build.</strong> Everything Android
+        here is a debug build in the emulator.</li>
+      <li><span class="label">Not measured</span><strong>Performance on real hardware.</strong> The recordings look
+        smooth; that is an impression, not a measurement.</li>
+      <li><span class="label">Not run</span><strong>Browsers other than Chrome.</strong></li>
+      <li><span class="label">Not run</span><strong>Other harnesses that use the moved controls:</strong> the Android
+        import checks A1–A3, the push rehearsals and <code>check:android-system-bars</code> (all reach the menu through
+        the updated shared library), and <code>check:099-isolated</code> (edited to open the menu first).</li>
+      <li><span class="label">Pending</span><strong>Visual approval.</strong></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="h-urls">
+    <h2 id="h-urls">Direct file addresses (HTTPS)</h2>
+    <p class="meta">The same files, served by GitHub over HTTPS. Plain text, for tools that cannot open this page.</p>
+    <ul class="urls">
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/index.html</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/before-web-overview-1280-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/after-web-overview-1280-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/before-web-overview-1280-dark.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/after-web-overview-1280-dark.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/before-web-rows-390-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/after-web-rows-390-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/before-web-rows-zoom200-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/after-web-rows-zoom200-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/after-web-row-menu-1280-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/after-web-row-menu-1280-dark.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/after-web-row-menu-flipped-1280-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/after-web-row-menu-zoom200-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/after-web-row-menu-390-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/before-web-appearance-menu-1280-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/after-web-appearance-menu-1280-light.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/before-android-light-100-list-top.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/after-android-light-100-list-top.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/before-android-dark-100-list-top.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/after-android-dark-100-list-top.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/before-android-light-100-menu.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/after-android-light-100-menu.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/before-android-dark-100-menu.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/after-android-dark-100-menu.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/before-android-light-200-list-top.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/after-android-light-200-list-top.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/before-android-light-200-list-end.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/after-android-light-200-list-end.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/before-android-light-200-menu.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/after-android-light-200-menu.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/refine-web.mp4</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/refine-android.mp4</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/refine-2/assets/refine-android.vtt</code></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>A static page: plain HTML, images, videos and a caption file, with no script, no tracking and no login.</p>
+  </footer>
+</div>
+</body>
+</html>
