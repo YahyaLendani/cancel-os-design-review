@@ -30,6 +30,9 @@ section > p, section > ul { max-width: 80ch; }
 .box { background: var(--caution); border-radius: 10px; padding: 12px 14px; display: grid; gap: 6px; max-width: 75ch; }
 .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
 .phones { display: grid; grid-template-columns: repeat(2, minmax(0, 300px)); gap: 24px; justify-content: start; }
+.phones3 { grid-template-columns: repeat(3, minmax(0, 300px)); }
+video.frame.narrow { max-width: 360px; }
+.label.after { color: var(--muted); }
 figure { margin: 0; display: grid; gap: 8px; min-width: 0; align-content: start; }
 .frame { display: block; background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px; overflow: hidden; line-height: 0; }
 .frame img, video.frame { width: 100%; height: auto; display: block; }
@@ -80,6 +83,10 @@ footer { font-size: 13px; color: var(--muted); max-width: 80ch; }
         (<code>src</code> tree <code>fdea4871</code>), with no uncommitted <code>src</code>. <code>8c30c11</code> adds
         to <code>05eaa5f</code> only a fix that makes the Edit fallback keep the page's other query parameters.
         Nothing on screen differs.</li>
+      <li><span class="label">Correction</span>Built from <code>49b86de</code> (<code>src</code> tree
+        <code>a3acf676</code>), with no uncommitted <code>src</code>: the corrected 390 px "after Done" capture and the
+        390 px keyboard recording. <code>49b86de</code> adds to <code>8c30c11</code> only the change that keeps
+        returned focus clear of the mobile bars.</li>
     </ul>
   </header>
 
@@ -125,22 +132,47 @@ footer { font-size: 13px; color: var(--muted); max-width: 80ch; }
       <figure><a class="frame" href="assets/before-row-after-done-1280-dark.png"><img src="assets/before-row-after-done-1280-dark.png" alt="Before, dark: after Done, no control has focus" width="1280" height="900" loading="lazy"></a><figcaption><h3><span class="label">Before</span>After Done, dark</h3><p>Focus on the page.</p></figcaption></figure>
       <figure><a class="frame" href="assets/after-row-after-done-1280-dark.png"><img src="assets/after-row-after-done-1280-dark.png" alt="After, dark: after Done, a focus ring on the row's Edit" width="1280" height="900" loading="lazy"></a><figcaption><h3><span class="label">After</span>After Done, dark</h3><p>Focus back on the row's Edit, in view.</p></figcaption></figure>
     </div>
-    <div class="phones">
-      <figure><a class="frame" href="assets/before-row-after-done-390-light.png"><img src="assets/before-row-after-done-390-light.png" alt="Before, 390 px: after Done the page shows the renewal calendar; no control has focus" width="780" height="1688" loading="lazy"></a><figcaption><h3><span class="label">Before</span>After Done, 390 px</h3></figcaption></figure>
-      <figure><a class="frame" href="assets/after-row-after-done-390-light.png"><img src="assets/after-row-after-done-390-light.png" alt="After, 390 px: after Done the page shows the renewal calendar; the focused Edit button is hidden under the top bar" width="780" height="1688" loading="lazy"></a><figcaption><h3><span class="label">After</span>After Done, 390 px</h3></figcaption></figure>
+    <div class="phones phones3">
+      <figure><a class="frame" href="assets/before-row-after-done-390-light.png"><img src="assets/before-row-after-done-390-light.png" alt="Before the slice, 390 px: after Done the page shows the renewal calendar; no control has focus" width="780" height="1688" loading="lazy"></a><figcaption><h3><span class="label">Before</span>After Done, 390 px</h3><p>No control has focus.</p></figcaption></figure>
+      <figure><a class="frame" href="assets/after-row-after-done-390-light.png"><img src="assets/after-row-after-done-390-light.png" alt="Historical, 390 px: after Done the page shows the renewal calendar; the focused Edit button is hidden under the top bar" width="780" height="1688" loading="lazy"></a><figcaption><h3><span class="label">Historical</span>After Done, 390 px</h3><p>The defect, as first published. The <code>05eaa5f</code> code: focus on Edit, but Edit is under the top bar.</p></figcaption></figure>
+      <figure><a class="frame" href="assets/corrected-49b86de-row-after-done-390-light.png"><img src="assets/corrected-49b86de-row-after-done-390-light.png" alt="Corrected, 390 px: after Done the row's Edit has a focus ring, just below the top bar" width="780" height="1688" loading="lazy"></a><figcaption><h3><span class="label after">Corrected</span>After Done, 390 px</h3><p>Built from <code>49b86de</code>, same script and data: Edit, focused, just below the top bar.</p></figcaption></figure>
     </div>
     <div class="box">
-      <p><span class="label">Open finding</span><strong>At 390 px the returned focus is hidden under the top
-        bar.</strong></p>
+      <p><span class="label after">Fixed in <code>49b86de</code></span><strong>At 390 px the returned focus was hidden
+        under the top bar.</strong> The historical capture above keeps the defect on record.</p>
       <ul>
-        <li>After Done, focus is on the row's Edit, but Edit sits at 0–36 px, entirely under the 64 px sticky glass
-          top bar.</li>
-        <li>A point at Edit's centre lands on the bar, not on Edit.</li>
-        <li>At 1280 px, Edit is in view.</li>
+        <li>On <code>8c30c11</code>'s code, after Done, focus was on the row's Edit, but Edit sat at 0–36 px, entirely
+          under the 64 px sticky glass top bar. A point at its centre landed on the bar (WCAG 2.2, 2.4.11, focus not
+          obscured).</li>
+        <li>In <code>49b86de</code>, after focusing, a small helper scrolls the least distance that clears the mobile top bar
+          and bottom tab bar. It measures them where they are at that moment; nothing moves when the control is
+          already clear, and the scroll is instant, not animated. It is used for Done → Edit and Edit → Name.</li>
+        <li>A check now fails if the focused control is covered, not only if it lacks focus. It passed at 390 px,
+          1280 px and 200% zoom, for the first and the last row of a longer list, and at 390 px with reduced motion.
+          Before the fix it failed at 390 px for the last row.</li>
       </ul>
-      <p>Before this slice, focus was not returned at all. Measured on <code>8c30c11</code>'s code. Not fixed: no
-        application change was made for this review. It is a "focus not obscured" issue (WCAG 2.2, 2.4.11).</p>
     </div>
+    <figure>
+      <video class="frame narrow" controls preload="metadata" playsinline width="520" height="1174" src="assets/focus390-49b86de.mp4">
+        <a href="assets/focus390-49b86de.mp4">390 px keyboard recording (MP4)</a>
+      </video>
+      <figcaption>
+        <h3><span class="label after">Corrected</span>Keyboard at 390 px, built from <code>49b86de</code></h3>
+        <p><strong>6.99 s of interaction at real speed, then about 0.6 s held on the final frame</strong> (the MP4 is
+          7.60 s; the encoder held the last frame at the end). Light, motion on, keyboard only; nothing is saved.
+          Captions are drawn into the frame:</p>
+        <ol>
+          <li>1.3 s: Tab to the row's Edit.</li>
+          <li>2.5 s: Enter. The editor opens; focus is in Name, clear of the top bar.</li>
+          <li>4.0 s: Tab to Done.</li>
+          <li>7.0 s: Enter on Done. Focus is back on the row's Edit, below the top bar, not under it.</li>
+        </ol>
+        <p class="meta">Focus from the recording log, measured as five points that must each land on the focused
+          control: Edit at 501–537 px, Name at 433–477 px, Done at 600–644 px, then Edit at 72–108 px. All uncovered.
+          The window is 844 px tall and the top bar 64 px. 390 × 844 at 2×, encoded at 520 px wide, H.264,
+          0.48 MB.</p>
+      </figcaption>
+    </figure>
   </section>
 
   <section aria-labelledby="h-ph">
@@ -189,6 +221,9 @@ footer { font-size: 13px; color: var(--muted); max-width: 80ch; }
       <li><span class="label">Unresolved</span><strong>React error #412.</strong> A press made the moment the row
         appears logs minified React error #412, for Edit and equally for the existing "How to cancel" link. It is
         reproduced and pre-existing. Its cause and production impact are not established.</li>
+      <li><span class="label">Limitation</span><strong>The focus correction handles the marked navigation bars
+        only</strong>: the mobile top bar and bottom tab bar. It is not a general solution for every overlapping
+        element; an open menu, a dialog or any other layer over a focused control is not considered.</li>
       <li><span class="label">Unresolved</span><strong>Whether the browser error-reporting SDK records full
         URLs</strong>, including <code>?edit=&lt;row id&gt;</code>. Not verified. Product analytics and security
         reports drop the query string.</li>
@@ -202,6 +237,8 @@ footer { font-size: 13px; color: var(--muted); max-width: 80ch; }
       <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/index.html</code> (this page's source, as text)</li>
       <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/polish1-web.mp4</code></li>
       <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/record-polish1.txt</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/focus390-49b86de.mp4</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/corrected-49b86de-row-after-done-390-light.png</code></li>
       <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/polish1-web-keyframes.png</code></li>
       <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/after-manual-form-placeholders-1280-dark.png</code></li>
       <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/polish-1/assets/after-manual-form-placeholders-1280-light.png</code></li>
