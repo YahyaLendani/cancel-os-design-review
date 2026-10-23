@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noimageindex">
+<meta name="color-scheme" content="light dark">
+<title>Motion Correction Review</title>
+<style>
+/* The design-review galleries' reading column. Static: no script, no tracking. */
+:root { --canvas: #f3f0e9; --surface: #faf7f1; --hairline: #ddd7cc; --ink: #27241f; --muted: #5e574d; --accent-text: #a8340b; --caution: #ffe6d9; --focus: #3d6bff;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; --mono: ui-monospace, "SF Mono", Consolas, "Roboto Mono", monospace; }
+@media (prefers-color-scheme: dark) { :root { --canvas: #15120f; --surface: #1f1b17; --hairline: #38322b; --ink: #efe9e0; --muted: #b0a79b; --accent-text: #ff9668; --caution: #3a2418; --focus: #8aa6ff; } }
+* { box-sizing: border-box; }
+html { background: var(--canvas); }
+body { margin: 0; background: var(--canvas); color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.55; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 40px max(16px, env(safe-area-inset-right, 0px)) 64px max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: 40px; }
+header { display: grid; gap: 12px; max-width: 75ch; }
+h1 { font-size: clamp(26px, 4vw, 34px); line-height: 1.15; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
+h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0; font-weight: 600; }
+h3 { font-size: 15px; margin: 0; }
+p, ul, ol { margin: 0; }
+ul, ol { padding-left: 20px; }
+li + li { margin-top: 4px; }
+code { font-family: var(--mono); font-size: 0.88em; overflow-wrap: anywhere; }
+a { color: var(--accent-text); }
+a:focus-visible, video:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+section { display: grid; gap: 16px; }
+section > p, section > ul, section > ol { max-width: 80ch; }
+.box { background: var(--caution); border-radius: 10px; padding: 12px 14px; display: grid; gap: 6px; max-width: 75ch; }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.phones { display: grid; grid-template-columns: repeat(2, minmax(0, 320px)); gap: 24px; justify-content: start; }
+figure { margin: 0; display: grid; gap: 8px; min-width: 0; align-content: start; }
+.frame { display: block; background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px; overflow: hidden; line-height: 0; }
+.frame img, video.frame { width: 100%; height: auto; display: block; }
+figcaption { font-size: 14px; color: var(--muted); display: grid; gap: 4px; }
+.meta { font-size: 13px; color: var(--muted); }
+.label { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--hairline); background: var(--surface); color: var(--accent-text); margin-right: 6px; }
+.label.after { color: var(--muted); }
+.table { max-width: 100%; }
+table { border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; vertical-align: top; padding: 6px 12px 6px 0; border-bottom: 1px solid var(--hairline); }
+th { font-weight: 600; }
+td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.status { display: grid; gap: 10px; padding: 0; list-style: none; max-width: 80ch; }
+.urls { display: grid; gap: 4px; padding: 0; list-style: none; font-size: 13px; }
+.urls li + li { margin-top: 0; }
+footer { font-size: 13px; color: var(--muted); max-width: 80ch; }
+@media (max-width: 760px) { .pair { grid-template-columns: minmax(0, 1fr); } .phones { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  table, tbody, tr, td { display: block; } thead { display: none; } tr { padding: 10px 0; border-bottom: 1px solid var(--hairline); }
+  td { border: 0; padding: 2px 0; } td:first-child { font-weight: 600; } td[data-label]::before { content: attr(data-label) ": "; color: var(--muted); } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p><strong>Cancel OS</strong> · Earlier reviews: <a href="../">premium identity</a>, <a href="../glass-depth-1/">glass and depth</a>, <a href="../refine-2/">refine 2</a>, <a href="../polish-1/">polish 1</a></p>
+    <h1>Design review: motion correction 1</h1>
+    <p>A small motion correction on the website and the Android app, on top of the polish-1 checkpoint
+      <code>49b86de</code>. Layout, palette and identity are unchanged.</p>
+    <ul>
+      <li><strong>Website:</strong> the whole-page fade-and-drift on load and navigation is removed, with nothing in
+        its place. Server-rendered content is no longer hidden while the page's scripts load.</li>
+      <li><strong>Website:</strong> the dashboard cards that show amounts no longer drift in.</li>
+      <li><strong>Website:</strong> a pressed button now settles to 0.98, the same as the phone (it was 0.97).</li>
+      <li><strong>Android:</strong> the header's More options menu can be reopened while it fades out.</li>
+      <li><strong>Kept:</strong> button, menu and navigation feedback; the loader for data that is genuinely pending,
+        with its curve unchanged; every reduced-motion path.</li>
+    </ul>
+    <p>Every screen uses synthetic test data (account <code>wizard@example.test</code>, services named "Synthetic …")
+      on a local stand-in server. No real person's data appears.</p>
+    <div class="box">
+      <p><strong>Motion approval is pending your review of these recordings.</strong> Screen-reader behaviour,
+        smoothness on a physical device and release readiness are unverified.</p>
+      <p><strong>This is a public preview.</strong> Anyone with the link can open it. It asks search engines not to
+        index it, but that is a request, not access control.</p>
+    </div>
+    <p class="meta"><strong>Source revisions</strong> (commits in the private Cancel OS repository; not pushed, not
+      deployed). Each capture printed what it served.</p>
+    <ul class="meta">
+      <li><span class="label">Tested checkpoint</span><code>b85e0cf</code>: website <code>src</code> tree
+        <code>b3449364</code>, phone <code>mobile/src</code> tree <code>48f192bc</code>. Evidence in
+        <code>3e05460</code>; wording corrections in <code>2ec066c</code>.</li>
+      <li><span class="label">Before, website</span>A production build with the website's <code>src</code> set to
+        <code>49b86de</code>'s (tree <code>a3acf676</code>), BUILD_ID <code>7IatYLGdtgPX0AXSxT4LB</code>.</li>
+      <li><span class="label after">After, website</span>A production build of <code>b85e0cf</code>, nothing uncommitted
+        (tree <code>b3449364</code>), BUILD_ID <code>9lD-bU8_d8brVfKoGzcof</code>.</li>
+      <li><span class="label">Before, Android</span><code>mobile/src</code> tree <code>4004ef45</code>
+        (<code>49b86de</code>'s phone code), JavaScript bundle sha256 <code>3ee725a7…</code>.</li>
+      <li><span class="label after">After, Android</span>Bundle sha256 <code>e949b2d2…</code>. It was recorded just
+        before the commit. Metro was then started again on <code>b85e0cf</code>, with nothing uncommitted, and served
+        the same bundle hash, so it is <code>b85e0cf</code>'s phone code.</li>
+      <li>Android runs: emulator <code>CancelOS_API36_Play_Pixel10Pro</code> (Android 16), the same debug APK
+        (<code>0fdc146a</code>) before and after, its JavaScript loaded from Metro. No native change.</li>
+    </ul>
+  </header>
+
+  <section aria-labelledby="h-web">
+    <h2 id="h-web">Website: navigation, 1280 × 900, light, motion on</h2>
+    <div class="pair">
+      <figure>
+        <video class="frame" controls preload="metadata" playsinline width="960" height="738" src="assets/web-before.mp4">
+          <a href="assets/web-before.mp4">Before recording (MP4)</a>
+        </video>
+        <figcaption><h3><span class="label">Before</span><code>49b86de</code>'s website, 6.89 s</h3>
+          <p>After each click the new page starts invisible and fades and drifts in over about 450 ms.</p>
+          <p class="meta">H.264, 960 × 738, 0.97 MB.</p></figcaption>
+      </figure>
+      <figure>
+        <video class="frame" controls preload="metadata" playsinline width="960" height="738" src="assets/web-after.mp4">
+          <a href="assets/web-after.mp4">After recording (MP4)</a>
+        </video>
+        <figcaption><h3><span class="label after">After</span><code>b85e0cf</code>, 6.83 s</h3>
+          <p>Each page is there as soon as it renders. The dashboard's amounts appear without moving.</p>
+          <p class="meta">H.264, 960 × 738, 0.41 MB.</p></figcaption>
+      </figure>
+    </div>
+    <p>Both recordings follow the same script. Captions and the take's clock are drawn into the frame:</p>
+    <ol>
+      <li>0.4 s: the dashboard.</li>
+      <li>1.4 s: Subscriptions. Its data read is held for 2 s at the stand-in, so the loader shows: genuinely pending
+        data.</li>
+      <li>3.5 s: the list arrives.</li>
+      <li>4.8 s: Upcoming.</li>
+      <li>6.1 s: the dashboard again, with its amounts.</li>
+    </ol>
+    <p class="meta">CDP screencast frames from headless Chrome 155, each drawn at its own timestamp and encoded at real
+      speed. Each MP4 plays within 0.07 s of its take and seeks to the end. These are computed frames without a GPU:
+      they show what the browser drew, not how smoothly a device draws it.</p>
+  </section>
+
+  <section aria-labelledby="h-held">
+    <h2 id="h-held">Website: /subscriptions with every script held</h2>
+    <div class="pair">
+      <figure><a class="frame" href="assets/scripts-held-before.png"><img src="assets/scripts-held-before.png" alt="Before: the Subscriptions page with its scripts held. The sidebar shows; the main column is empty, though its content is in the page" width="1280" height="900" loading="lazy"></a>
+        <figcaption><h3><span class="label">Before</span><code>49b86de</code>'s website</h3>
+          <p>The rows are in the page as the server sent them, but at opacity 0. The main column looks empty.</p>
+          <p class="meta">PNG, 1280 × 900, 322 KB.</p></figcaption></figure>
+      <figure><a class="frame" href="assets/scripts-held-after.png"><img src="assets/scripts-held-after.png" alt="After: the same page with its scripts held. The heading, summary, two synthetic subscriptions and the renewal calendar are visible" width="1280" height="900" loading="lazy"></a>
+        <figcaption><h3><span class="label after">After</span><code>b85e0cf</code></h3>
+          <p>The same server-rendered content, visible.</p>
+          <p class="meta">PNG, 1280 × 900, 263 KB.</p></figcaption></figure>
+    </div>
+    <p class="meta">Taken 2 s after the rows reached the page, with every JavaScript chunk held by the browser, so no
+      script had run.</p>
+  </section>
+
+  <section aria-labelledby="h-android">
+    <h2 id="h-android">Android: reopening the header menu during its fade</h2>
+    <div class="phones">
+      <figure>
+        <video class="frame" controls preload="metadata" playsinline width="720" height="1280" src="assets/android-menu-before.mp4">
+          <a href="assets/android-menu-before.mp4">Before recording (MP4)</a>
+        </video>
+        <figcaption><h3><span class="label">Before</span><code>49b86de</code>'s phone code, 7.75 s</h3>
+          <p>The reopen tap closes the menu: it stays closed.</p>
+          <p class="meta">H.264, 720 × 1280, 0.84 MB.</p></figcaption>
+      </figure>
+      <figure>
+        <video class="frame" controls preload="metadata" playsinline width="720" height="1280" src="assets/android-menu-after.mp4">
+          <a href="assets/android-menu-after.mp4">After recording (MP4)</a>
+        </video>
+        <figcaption><h3><span class="label after">After</span><code>b85e0cf</code>, 7.67 s</h3>
+          <p>The same tap reopens the menu, and the fade turns around.</p>
+          <p class="meta">H.264, 720 × 1280, 0.38 MB.</p></figcaption>
+      </figure>
+    </div>
+    <p>The emulator's own screen recording, at real speed. Light, animations on. No captions in the frame. The moments,
+      from the recording logs:</p>
+    <ol>
+      <li>About 1.6 s: More options. The menu opens.</li>
+      <li>About 3.2 s: Back, then More options again. From the device's input log, the tap came 84 ms (before) and
+        82 ms (after) after Back, inside the menu's 120 ms fade.</li>
+      <li>About 7.5 s: Back. The menu fades out.</li>
+    </ol>
+    <p class="meta">Whether the menu was open after the reopen was read from the app's UI tree (a uiautomator dump: the menu's items present or not): before,
+      false; after, true.</p>
+  </section>
+
+  <section aria-labelledby="h-results">
+    <h2 id="h-results">Results</h2>
+    <h3>Website (<code>check:web-motion</code>, a new check)</h3>
+    <ul>
+      <li><strong>Before:</strong> 15 checks failed. With scripts held or disabled, content was at opacity 0. After
+        navigation, 168–180 frames were faded or shifted. The dashboard's amount cards moved. A press reached
+        0.9697.</li>
+      <li><strong>After, <code>b85e0cf</code>:</strong> all passed. Content was visible with scripts held and with
+        JavaScript disabled. Navigation had 0 faded or shifted frames, with motion on and under reduced motion. The
+        amount cards had 0 moving frames. A press reached 0.98. The row menu still grows, and the loader still moves
+        (and stands still under reduced motion).</li>
+      <li><strong>Keyboard focus</strong> (<code>check:edit-first-click</code>): 63 of 63 passed on
+        <code>b85e0cf</code>, including the 390 px focus-visibility correction.</li>
+    </ul>
+    <div class="box">
+      <p><strong>What this does and doesn't show.</strong> The whole-page animation no longer hides server-rendered
+        content. That doesn't make every page work without JavaScript: <code>/subscriptions</code> still shows only its
+        loader with scripts disabled, because its rows stream in and need script to appear.</p>
+    </div>
+
+    <h3>Android (<code>check:android-menu-reopen</code>, a new check, on the emulator)</h3>
+    <p>Each attempt is Back, then a tap on More options. The delay between them was read from the device's input log.
+      Every case ran with animations on and again under Remove animations.</p>
+    <div class="table">
+      <table>
+        <thead><tr><th>Mode</th><th>Tap after Back</th><th>Before (<code>49b86de</code>)</th><th>After (<code>b85e0cf</code>)</th></tr></thead>
+        <tbody>
+          <tr><td>Animations on, during the fade</td><td data-label="Tap after Back" class="num">27–81 ms</td><td data-label="Before (49b86de)">Failed: the tap closed the menu (30, 33, 81 ms)</td><td data-label="After (b85e0cf)"><strong>Reopened</strong> (27, 35, 78 ms)</td></tr>
+          <tr><td>Animations on, as the window is removed</td><td data-label="Tap after Back" class="num">126–178 ms</td><td data-label="Before (49b86de)">Lost (127, 150, 178 ms)</td><td data-label="After (b85e0cf)"><strong>Unresolved:</strong> 150 and 178 ms lost; 126 ms reopened</td></tr>
+          <tr><td>Animations on, after the window has gone</td><td data-label="Tap after Back" class="num">≈ 330 ms</td><td data-label="Before (49b86de)">Reopened (328 ms)</td><td data-label="After (b85e0cf)">Reopened (327 ms)</td></tr>
+          <tr><td>Remove animations, as the window is removed</td><td data-label="Tap after Back" class="num">27–32 ms</td><td data-label="Before (49b86de)">Lost (27, 32 ms)</td><td data-label="After (b85e0cf)"><strong>Unresolved:</strong> lost (27, 29 ms)</td></tr>
+          <tr><td>Remove animations, after the window has gone</td><td data-label="Tap after Back" class="num">80–328 ms</td><td data-label="Before (49b86de)">Reopened (80, 128, 148, 176, 327 ms)</td><td data-label="After (b85e0cf)">Reopened (83, 146, 161, 177, 328 ms)</td></tr>
+          <tr><td>Both modes</td><td data-label="Tap after Back">—</td><td colspan="2">A tap outside the menu (on a row) closes it without opening the row; Back closes it and stays on the list; More options while open closes it. Passed before and after.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul>
+      <li><strong>Fixed in the tested emulator configuration:</strong> reopening during the fade. Before, the menu's
+        full-screen backdrop covered the button while it faded and a tap there closed the menu. Now a tap on the
+        button's area while closing reopens it.</li>
+      <li><strong>Unresolved: the window-removal gap.</strong> After the menu goes, Android removes its window about
+        50 ms later than the app removes the backdrop. A tap in between can be lost: after the fix, 4 of the 5
+        taps that landed in the gap were lost (one, at 126 ms, reopened the menu). The gap is <strong>not resolved by
+        the approaches tested</strong>. One approach was tried, keeping the window
+        longer: it only moved the gap later, so it was reverted. The evidence does not establish that no
+        application-level approach could address it.</li>
+      <li><strong>Only the delays in the table were tried.</strong> The check reports the gap cases as notes, not
+        failures. Its "all checks passed" therefore doesn't mean every reopen timing works.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="h-correction">
+    <h2 id="h-correction">Correction to the earlier motion review</h2>
+    <div class="box">
+      <p><span class="label">Corrected</span><strong>The motion review's Android "observation" of this defect came from
+        a faulty test.</strong> Its script sent Back and the tap as one <code>sh -c "…"</code> command through a helper
+        that splits arguments, so the device ran only <code>sh -c input</code> and <strong>Back was never
+        sent</strong>.</p>
+      <p>The defect itself is real. It was reproduced afterwards with Back and the tap sent as one device command, and
+        the gap read from the device's input log, as in the table above. The review is kept as written, with a dated
+        correction note beside the finding.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-open">
+    <h2 id="h-open">Not verified, unresolved, or left for later</h2>
+    <ul class="status">
+      <li><span class="label">Pending</span><strong>Motion approval</strong>, after review of these recordings.</li>
+      <li><span class="label">Unverified</span><strong>Screen-reader behaviour</strong>, on the website and with
+        TalkBack.</li>
+      <li><span class="label">Unverified</span><strong>Smoothness on a physical device.</strong> Android results come
+        from an emulator running a debug build, with taps injected by <code>adb</code>. They establish the order of
+        events and the logic of the fix. Frame pacing, a person's finger timing, and the size of the gap on real
+        hardware are not established.</li>
+      <li><span class="label">Unverified</span><strong>Release readiness</strong>, and browsers other than Chrome.</li>
+      <li><span class="label">Unresolved</span><strong>The ~50 ms Android window-removal gap</strong> (above).</li>
+      <li><span class="label">Limitation</span><strong><code>/subscriptions</code> without JavaScript shows only its
+        loader</strong> (streamed content). This is pre-existing and not motion.</li>
+      <li><span class="label">Backlog</span><strong>The public directory's merchant list</strong> uses a separate
+        reveal animation that, from its code, appears to keep the list at opacity 0 until JavaScript runs. It hasn't
+        been measured. It is recorded as its own backlog item and was not changed in this slice.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="h-urls">
+    <h2 id="h-urls">Direct file addresses (HTTPS)</h2>
+    <p class="meta">The same files, served by GitHub over HTTPS. Plain text, for tools that cannot open this page.</p>
+    <ul class="urls">
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/motion-correction-1/index.html</code> (this page's source, as text)</li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/motion-correction-1/assets/web-before.mp4</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/motion-correction-1/assets/web-after.mp4</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/motion-correction-1/assets/scripts-held-before.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/motion-correction-1/assets/scripts-held-after.png</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/motion-correction-1/assets/android-menu-before.mp4</code></li>
+      <li><code>https://raw.githubusercontent.com/YahyaLendani/cancel-os-design-review/main/motion-correction-1/assets/android-menu-after.mp4</code></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>A static page: plain HTML, images and videos, with no script, no tracking and no login.</p>
+  </footer>
+</div>
+</body>
+</html>
